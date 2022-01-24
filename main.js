@@ -11,6 +11,8 @@ let addBtn
 let tasksList
 let newTask
 let newTools
+let editWindow
+let editInput
 
 //functions
 
@@ -64,7 +66,11 @@ const checkTools = e => {
 	if (e.target.matches('.complete')) {
 		e.target.closest('li').classList.toggle('completed')
 	} else if (e.target.matches('.edit')) {
+		editWindow = document.querySelector('.editWindow')
+        editInput = document.querySelector('.editInput')
+		editWindow.style.display = 'block'
 	} else if (e.target.matches('.delete')) {
+		e.target.closest('li').remove()
 	}
 }
 
