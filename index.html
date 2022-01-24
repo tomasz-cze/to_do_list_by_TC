@@ -16,12 +16,13 @@
     <div class="todo">
         <div class="header">
             <h1>ToDo List</h1>
-            <input type="text" class="todo-input" placeholder="Tutaj wpisz treść zadania.">
-            <button class="btn-add">Dodaj do listy</button>
+            <input type="text" class="task-input" placeholder="Tutaj wpisz treść zadania.">
+            <button class="addBtn">Dodaj do listy</button>
+            <p class="alert1">Brak zadań na liście.</p>
         </div>
         <div class="todolist">
+        
             <h3>Lista zadań do wykonania:</h3>
-            <p class="error-info">Brak zadań na liście.</p>
             <ul>
                 <li data-id='test1'>Medytacja
                     <div class="tools">
@@ -51,7 +52,7 @@
     <div class="editWindow">
         <h3>Edytuj zadanie:</h3>
         <div class="edit-body">
-            <p class="edit-info"></p>
+            <p class="editAlert"></p>
             <input type="text" class="edit-input" placeholder="Wprowadź zedytowaną treść zadania...">
             <button class="edit-btn accept">Zatwierdź</button>
             <button class="edit-btn cancel">Anuluj</button>
