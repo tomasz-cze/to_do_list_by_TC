@@ -13,8 +13,9 @@ let newTask
 let newTools
 let editWindow
 let editInput
-let editBody = document.querySelector('.editBody')
-
+let editAlert
+let editBody
+let editedTask
 //functions
 
 const master = () => {
@@ -50,7 +51,7 @@ const addTask = () => {
 	if (taskInput.value !== '') {
 		alert1.style.color = 'var(--dark)'
 		alert1.textContent = ''
-		newTask = document.createElement('li')
+        newTask = document.createElement('li')
 		newTask.textContent = taskInput.value
 		tasksList.append(newTask)
 		addTools()
@@ -67,22 +68,39 @@ const checkTools = e => {
 	if (e.target.matches('.complete')) {
 		e.target.closest('li').classList.toggle('completed')
 	} else if (e.target.matches('.edit')) {
-		editWindow = document.querySelector('.editWindow')
-		editInput = document.querySelector('.editInput')
-		editWindow.style.display = 'block'
+		showEdit(e)
 	} else if (e.target.matches('.delete')) {
 		e.target.closest('li').remove()
 	}
 }
 
+// function showing editWindow
+const showEdit = e => {
+	editedTask = e.target.closest('li')
+    editInput.value = editedTask.firstChild.textContent
+	editWindow.style.display = 'flex'
+}
+
+// function closing editWindow
+
+const closeEdit = () => {
+	editWindow.style.display = 'none'
+}
+// function changingTask by editing window
+
+const editTask = (e) => {
+    editedTask.closest('li').textContent = editInput.value
+    // editedTask.firstChild.textContent = 
+    
+}
 //FUNCTION CHECKING WHICH BUTTON IS CLICKED in edit Window
 
 const checkEdit = e => {
 	if (e.target.matches('.accept') && editInput.value !== '') {
-		// let editedTask = editInput.value
-		editWindow.style.display = 'none'
+        editTask()
+		closeEdit()
 	} else if (e.target.matches('.cancel')) {
-		editWindow.style.display = 'none'
+		closeEdit()
 	}
 }
 
@@ -92,6 +110,9 @@ const PrepDOMElements = () => {
 	alert1 = document.querySelector('.alert1')
 	addBtn = document.querySelector('.addBtn')
 	tasksList = document.querySelector('ul')
+	editBody = document.querySelector('.editBody')
+	editWindow = document.querySelector('.editWindow')
+	editInput = document.querySelector('.editInput')
 }
 // function listetning for events
 const PrepDOMEvents = () => {

@@ -141,14 +141,17 @@ h1 {
 	position: fixed;
 	bottom: 20px;
 	left: 50%;
-	transform: translateX(-50%);
+	top: 60%;
+	transform: translate(-50%, -50%);
 	width: 800px;
-	color: var(--textColor);
+	height: 20%;
+	color: var(--dark-light);
 	background-image: linear-gradient(120deg, #14b82f 0%, #4df8cd 100%);
 }
 
 .editWindow h3 {
-	padding: 20px;
+	padding: 30px;
+	font-size: 25px;
 	text-align: center;
 }
 
@@ -159,6 +162,7 @@ h1 {
 
 .editBody {
 	display: flex;
+	width: 100%;
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
@@ -173,11 +177,12 @@ h1 {
 
 .edit-btn {
 	width: 20%;
+	height: 100%;
 	display: inline-block;
 	padding: 10px 22px;
 	margin: 20px;
 	border: none;
-	border-radius: 5px;
+	border-radius: 50%;
 	color: var(--dark);
 	background-color: var(--textColor);
 	text-transform: uppercase;
