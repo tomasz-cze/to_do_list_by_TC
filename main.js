@@ -1,42 +1,53 @@
-// var data teken from html
+// data taken from html
 
-const taskInput = document.querySelector('.task-input')
-const alert1 = document.querySelector('.alert1')
-const addBtn = document.querySelector('.addBtn')
-const tasksList = document.querySelector('ul')
 const editBtnAccept = document.querySelector('.edit-btn accept')
 const editBtnCancel = document.querySelector('.edit-btn cancel')
 
-// global variables 
+// global variables
 
-let currentTask 
-let tasksList = []
-
+let taskInput
+let alert1
+let addBtn
+let tasksList
+let newTask
 
 //functions
 
-
 const master = () => {
-    PrepDOMEvents()
-    PrepDOMElements()
+	PrepDOMElements()
+	PrepDOMEvents()
+}
+const addTask = () => {
+	if (taskInput.value !== '') {
+		alert1.style.color = 'var(--dark)'
+        alert1.textContent = ''
+        newTask = document.createElement('li')
+        newTask.textContent = taskInput.value
+      tasksList.append(newTask)
+      console.log(tasksList);
+        
+	} else {
+        alert1.style.color = "red"
+		alert1.textContent = 'Wpisz treść zadania!'
+	}
+    taskInput.value = ''
 }
 
 // function downloading data from elements
 const PrepDOMElements = () => {
-    
+	taskInput = document.querySelector('.task-input')
+	alert1 = document.querySelector('.alert1')
+	addBtn = document.querySelector('.addBtn')
+	tasksList = document.querySelector('ul')
+  
 }
 // function listetning for events
 const PrepDOMEvents = () => {
-    
+    addBtn.addEventListener('click', addTask)
 }
-
-
-const addTask = () => {
-    currentTask = taskInput.value
-  return currentTask
-}
-
 
 // listeners
-console.log(currentTask);
-addBtn.addEventListener('click', addTask)
+ 
+
+
+document.addEventListener('DOMContentLoaded', master)

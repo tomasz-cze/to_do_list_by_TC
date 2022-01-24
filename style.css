@@ -52,8 +52,9 @@ h1 {
 	background-color: var(--textColor);
 }
 
-.error-info {
+.alert1 {
 	margin-top: 20px;
+	font-size: 30px;
 	color: var(--color2);
 }
 
