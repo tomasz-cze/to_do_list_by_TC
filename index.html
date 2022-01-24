@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5ad2517ddc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
     <title>To do list by TC</title>
@@ -16,31 +16,31 @@
     <div class="todo">
         <div class="header">
             <h1>ToDo List</h1>
-            <input type="text" class="todo-input" placeholder="Wpisz treść zadania...">
-            <button class="btn-add">Add</button>
+            <input type="text" class="todo-input" placeholder="Tutaj wpisz treść zadania.">
+            <button class="btn-add">Dodaj do listy</button>
         </div>
         <div class="todolist">
-            <h3>Lista zadań:</h3>
+            <h3>Lista zadań do wykonania:</h3>
             <p class="error-info">Brak zadań na liście.</p>
             <ul>
-                <li data-id='test1'>Wypić kawę
+                <li data-id='test1'>Medytacja
                     <div class="tools">
-                        <button class="complete"><i class="fas fa-check"></i></button>
-                        <button class="edit">EDIT</button>
+                        <button class="complete"><i class="far fa-check-circle"></i></button>
+                        <button class="edit">EDYTUJ</button>
                         <button class="delete"><i class="fas fa-times"></i></button>
                     </div>
                 </li>
-                <li data-id='test2'>Zjeść śniadanie
+                <li data-id='test2'>kalnedarz
                     <div class="tools">
-                        <button class="complete"><i class="fas fa-check"></i></button>
-                        <button class="edit">EDIT</button>
+                        <button class="complete"><i class="far fa-check-circle"></i></button>
+                        <button class="edit">EDYTUJ</button>
                         <button class="delete"><i class="fas fa-times"></i></button>
                     </div>
                 </li>
-                <li data-id='test3'>Umyć okna
+                <li data-id='test3'>pobiegać
                     <div class="tools">
-                        <button class="complete"><i class="fas fa-check"></i></button>
-                        <button class="edit">EDIT</button>
+                        <button class="complete"><i class="far fa-check-circle"></i></button>
+                        <button class="edit">EDYTUJ</button>
                         <button class="delete"><i class="fas fa-times"></i></button>
                     </div>
                 </li>
@@ -48,13 +48,13 @@
         </div>
     </div>
     
-    <div class="popup">
+    <div class="editWindow">
         <h3>Edytuj zadanie:</h3>
-        <div class="popup-body">
-            <p class="popup-info"></p>
-            <input type="text" class="popup-input" placeholder="Wprowadź nową treść zadania...">
-            <button class="popup-btn accept">Zatwierdź</button>
-            <button class="popup-btn cancel">Anuluj</button>
+        <div class="edit-body">
+            <p class="edit-info"></p>
+            <input type="text" class="edit-input" placeholder="Wprowadź zedytowaną treść zadania...">
+            <button class="edit-btn accept">Zatwierdź</button>
+            <button class="edit-btn cancel">Anuluj</button>
         </div>
     </div>
     <script src="./main.js"></script>

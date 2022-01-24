@@ -1,29 +1,28 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 :root {
-    --deep-dark: rgb(26, 26, 26);
-    --light-dark: rgb(79, 82, 92);
-    --light-blue: rgb(0, 132, 255);
-    --dark-blue: rgb(2, 84, 161);
-    --light: rgb(245, 245, 245);
+	--dark: rgb(29, 15, 15);
+	--dark-light: rgb(79, 82, 92);
+	--color1: rgb(6, 139, 46);
+	--color2: rgb(28, 179, 146);
+	--textColor: rgb(245, 245, 245);
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    margin-top: 120px;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--light);
+	display: flex;
+	justify-content: center;
+    font-family: 'Playfair Display', serif;
+	margin-top: 120px;
+    background-image: url(./img/paper.jpg);
 }
 
 h1 {
-    color: var(--light);
-    margin-bottom: 20px;
-    text-transform: uppercase;
+	color: var(--textColor);
+	margin: 0px;
 }
 
 .fas {
@@ -31,164 +30,158 @@ h1 {
 }
 
 .todo {
-    width: 800px;
-    border-radius: 5px;
-    background: #fff;
-    box-shadow: 4px 4px 5px rgba(82, 82, 82, .4);
-    text-align: center;
+	width: 1000px;
+	background: #fff;
+	box-shadow: 8px 8px 8px 8px rgba(82, 82, 82, 0.4);
+	text-align: center;
 }
 
 .header {
-    border-radius: 5px 5px 0 0;
-    padding: 40px;
-    background-image: linear-gradient(340deg, #045de9 0%, #09c6f9 100%);
+	border-radius: 5px 5px 0 0;
+	padding: 40px;
+	background-image: linear-gradient(120deg, #14b82f 0%, #4df8cd 100%);
 }
 
 .todo-input {
-    width: 80%;
-    padding: 10px 20px;
-    margin-right: 20px;
-    border: none;
-    border-radius: 5px;
-    color: var(--light-dark);
-    background-color: var(--light);
+	width: 80%;
+	padding: 10px 20px;
+	margin-right: 20px;
+	border: none;
+	border-radius: 5px;
+	color: var(--textColor-dark);
+	background-color: var(--textColor);
 }
 
 .error-info {
-    margin-top: 20px;
-    color: var(--dark-blue);
+	margin-top: 20px;
+	color: var(--color2);
 }
 
 .btn-add {
-    padding: 10px 22px;
-    border: none;
-    border-radius: 5px;
-    color: var(--deep-dark);
-    background-color: var(--light);
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color .3s, background-color .3s;
+	padding: 10px 22px;
+	border: none;
+	border-radius: 5px;
+	color: var(--dark);
+	background-color: var(--textColor);
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: color 0.3s, background-color 0.3s;
 }
 
 .btn-add:hover {
-    color: #fff;
-    background-color: var(--light-dark);
+	color: #fff;
+	background-color: var(--color1);
 }
 
 .todolist {
-    padding: 20px 0;
+	padding: 20px 0;
 }
 
 .todolist h3 {
-    text-transform: uppercase;
-    margin-bottom: 16px;
+	margin-bottom: 16px;
 }
 
 .todolist li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px;
-    padding-left: 20px;
-    text-align: left;
-    list-style: none;
-    background-color: var(--light);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px;
+	padding-left: 50px;
+	text-align: left;
+	list-style: none;
+	background-color: var(--color2);
 }
 
 .tools {
-    display: inline-block;
+	display: inline-block;
 }
 
 .tools button {
-    padding: 15px 10px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    transition: background-color .3s;
+	padding: 15px 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	transition: background-color 0.3s;
 }
 
 .tools button:hover {
-    background-color: #ddd;
+	background-color: #ddd;
 }
 
 .complete {
-    color: var(--light-blue);
+	color: var(--dark);
+    font-size: 20px;
 }
 
 .edit {
-    font-weight: bold;
-    color: rgb(15, 179, 69);
+	font-weight: bold;
+	color: var(--dark);
 }
 
 .delete {
-    color: tomato;
+	color: tomato;
 }
 
 .completed {
-    font-size: 12px;
-    color: var(--light-dark);
-    text-decoration: line-through;
-    font-style: italic;
+	font-size: 12px;
+	color: var(--textColor-dark);
+	text-decoration: line-through;
+	font-style: italic;
 }
 
-.popup {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    color: var(--light);
-    background-color: var(--light-dark);
-    border-radius: 5px;
+.editWindow {
+	display: none;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 800px;
+	color: var(--textColor);
+	background-image: linear-gradient(120deg, #14b82f 0%, #4df8cd 100%);
 }
 
-.popup h3 {
-    padding: 20px;
+.editWindow h3 {
+	padding: 20px;
+	text-align: center;
 }
 
-.popup-info {
-    color: var(--light);
-    margin-bottom: 20px;
+.edit-info {
+	color: var(--textColor);
+	margin-bottom: 20px;
 }
 
-.popup-body {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 90%;
-    padding: 10px;
+.edit-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
 }
 
-.popup-input {
-    width: 100%;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: var(--light-dark);
-    background-color: var(--light);
+.edit-input {
+	width: 100%;
+	padding: 10px 20px;
+	color: var(--textColor-dark);
+	background-color: var(--textColor);
 }
 
-.popup-btn {
-    width: 30%;
-    display: inline-block;
-    padding: 10px 22px;
-    margin: 20px;
-    border: none;
-    border-radius: 5px;
-    color: var(--deep-dark);
-    background-color: var(--light);
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color .3s, background-color .3s;
+.edit-btn {
+	width: 20%;
+	display: inline-block;
+	padding: 10px 22px;
+	margin: 20px;
+	border: none;
+	border-radius: 5px;
+	color: var(--dark);
+	background-color: var(--textColor);
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: color 0.3s, background-color 0.3s;
 }
 
-.popup-btn:hover {
-    color: #fff;
-    background-color: var(--light-blue);
+.edit-btn:hover {
+	color: #fff;
+	background-color: var(--color1);
 }
-
-
