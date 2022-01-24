@@ -23,12 +23,12 @@ const master = () => {
 
 const addTools = () => {
 	newTools = document.createElement('div')
-	newTask.append(newTools)
 	newTools.classList.add('tools')
+	newTask.append(newTools)
 	newComplet = document.createElement('button')
-	newTools.append(newComplet)
 	newComplet.innerHTML = '<i class="far fa-check-circle"></i>'
 	newComplet.classList.add('complete')
+	newTools.append(newComplet)
 	newEdit = document.createElement('button')
 	newEdit.textContent = 'EDYTUJ'
 	newTools.append(newEdit)
@@ -37,6 +37,9 @@ const addTools = () => {
 	newDelete.innerHTML = '<i class="fas fa-times"></i>'
 	newTools.append(newDelete)
 	newDelete.classList.add('delete')
+
+	// shorter way of writing above
+	newTools.append(newComplet, newEdit, newDelete)
 }
 
 // function adding new task
@@ -55,6 +58,16 @@ const addTask = () => {
 	taskInput.value = ''
 }
 
+//FUNCTION CHECKING WHICH BUTTON IS CLICKED
+
+const checkTools = e => {
+	if (e.target.matches('.complete')) {
+		e.target.closest('li').classList.toggle('completed')
+	} else if (e.target.matches('.edit')) {
+	} else if (e.target.matches('.delete')) {
+	}
+}
+
 // function downloading data from elements
 const PrepDOMElements = () => {
 	taskInput = document.querySelector('.task-input')
@@ -65,13 +78,14 @@ const PrepDOMElements = () => {
 // function listetning for events
 const PrepDOMEvents = () => {
 	addBtn.addEventListener('click', addTask)
+	tasksList.addEventListener('click', checkTools)
 }
 
 // listeners
 
 document.addEventListener('DOMContentLoaded', master)
 document.addEventListener('keyup', function (e) {
-    if (e.keyCode === 13) {
-        addTask()
-    }
+	if (e.keyCode === 13) {
+		addTask()
+	}
 })

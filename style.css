@@ -25,14 +25,14 @@ h1 {
 	margin: 0px;
 }
 
-.fas {
+.far {
 	pointer-events: none;
 }
 
 .todo {
 	width: 1000px;
 	background: #fff;
-	box-shadow: 8px 8px 8px 8px rgba(82, 82, 82, 0.4);
+	box-shadow: 8px 8px 8px 8px rgba(82, 82, 82, 0.2);
 	text-align: center;
 }
 
@@ -90,6 +90,7 @@ h1 {
 	padding-left: 50px;
 	text-align: left;
 	list-style: none;
+	font-size: 20px;
 	border: 0.3px solid black;
 
 }
@@ -128,6 +129,7 @@ h1 {
 	font-size: 12px;
 	color: var(--textColor-dark);
 	text-decoration: line-through;
+	background-color: var(--color2);
 }
 
 .editWindow {
