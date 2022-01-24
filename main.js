@@ -19,7 +19,7 @@ const master = () => {
 	PrepDOMEvents()
 }
 
-// function adding tools div
+// function adding  div with tools to new task
 
 const addTools = () => {
 	newTools = document.createElement('div')
@@ -47,7 +47,6 @@ const addTask = () => {
 		newTask = document.createElement('li')
 		newTask.textContent = taskInput.value
 		tasksList.append(newTask)
-		console.log(tasksList)
 		addTools()
 	} else {
 		alert1.style.color = 'red'
@@ -71,3 +70,8 @@ const PrepDOMEvents = () => {
 // listeners
 
 document.addEventListener('DOMContentLoaded', master)
+document.addEventListener('keyup', function (e) {
+    if (e.keyCode === 13) {
+        addTask()
+    }
+})
