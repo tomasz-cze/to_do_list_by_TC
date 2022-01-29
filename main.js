@@ -51,7 +51,7 @@ const addTask = () => {
 	if (taskInput.value !== '') {
 		alert1.style.color = 'var(--dark)'
 		alert1.textContent = ''
-        newTask = document.createElement('li')
+		newTask = document.createElement('li')
 		newTask.textContent = taskInput.value
 		tasksList.append(newTask)
 		addTools()
@@ -77,7 +77,7 @@ const checkTools = e => {
 // function showing editWindow
 const showEdit = e => {
 	editedTask = e.target.closest('li')
-    editInput.value = editedTask.firstChild.textContent
+	editInput.value = editedTask.firstChild.textContent
 	editWindow.style.display = 'flex'
 }
 
@@ -86,18 +86,17 @@ const showEdit = e => {
 const closeEdit = () => {
 	editWindow.style.display = 'none'
 }
-// function changingTask by editing window
+// function changing Task by editWindow
 
-const editTask = (e) => {
-    editedTask.closest('li').textContent = editInput.value
-    // editedTask.firstChild.textContent = 
-    
+const editTask = e => {
+	editedTask.firstChild.textContent = editInput.value
+	// editedTask.firstChild.textContent =
 }
 //FUNCTION CHECKING WHICH BUTTON IS CLICKED in edit Window
 
 const checkEdit = e => {
 	if (e.target.matches('.accept') && editInput.value !== '') {
-        editTask()
+		editTask()
 		closeEdit()
 	} else if (e.target.matches('.cancel')) {
 		closeEdit()
@@ -129,3 +128,7 @@ document.addEventListener('keyup', function (e) {
 		addTask()
 	}
 })
+
+
+
+
