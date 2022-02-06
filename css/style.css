@@ -9,19 +9,15 @@
   --dark: rgb(29, 15, 15);
   --dark-light: rgb(79, 82, 92);
   --bgColor: white;
+  --bgColor2: rgb(245, 247, 242);
   --color2: rgb(14, 212, 41);
   --textColor: rgb(0, 30, 94);
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  color: var(--textColor);
   font-family: 'Lato', sans-serif;
-  margin-top: 120px;
+  position: relative;
 }
 
 .organizer {
@@ -35,67 +31,92 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 95%;
+  margin: 5%;
+}
+
+.organizer .mainHeader {
   width: 100vw;
-}
-
-.weatherApp {
-  width: 50%;
-  border: 1px solid red;
-}
-
-.weatherApp .topPart {
+  margin-bottom: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.organizer .mainHeader .weatherApp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+}
+
+.organizer .mainHeader .weatherApp .welcomeText {
+  width: 100%;
+  font-size: 36px;
+  text-align: center;
+}
+
+.organizer .mainHeader .weatherApp .weatherBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.organizer .mainHeader .weatherApp .weatherBody .topPart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 30%;
-  height: 30%;
-  z-index: 10;
+  width: 50%;
 }
 
-.weatherApp .topPart input {
+.organizer .mainHeader .weatherApp .weatherBody .topPart input {
   text-align: center;
-  width: 80%;
+  width: 50%;
+  font-size: 14px;
+}
+
+.organizer .mainHeader .weatherApp .weatherBody .topPart .cityName {
   font-size: 25px;
-}
-
-.weatherApp .topPart .cityName {
-  font-size: 40px;
   padding: 10px;
+  width: 40%;
 }
 
-.weatherApp .topPart .sendBtn {
+.organizer .mainHeader .weatherApp .weatherBody .topPart .sendBtn {
   margin: 10px;
-  font-size: 20px;
+  font-size: 12px;
+  width: 20%;
 }
 
-.weatherApp .topPart .weatherImg {
-  width: 100px;
+.organizer .mainHeader .weatherApp .weatherBody .topPart .weatherImg {
+  width: 40%;
+}
+
+.organizer .mainHeader .weatherApp .weatherBody .topPart .weatherImg img {
   height: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 100px;
 }
 
-.weatherApp .topPart .weatherImg img {
-  height: 120px;
-  width: 120px;
-}
-
-.weatherApp .bottomPart {
+.organizer .mainHeader .weatherApp .weatherBody .bottomPart {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,17 +126,17 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 30vw;
+  width: 50%;
   height: 30vh;
 }
 
-.weatherApp .bottomPart p {
+.organizer .mainHeader .weatherApp .weatherBody .bottomPart p {
   text-align: right;
   display: block;
   margin: 30px;
 }
 
-.weatherApp .bottomPart .results {
+.organizer .mainHeader .weatherApp .weatherBody .bottomPart .results {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,21 +151,11 @@ body {
   width: 70%;
 }
 
-.weatherApp .bottomPart .results .weatherResult {
-  border-bottom: 1px solid blue;
+.organizer .mainHeader .weatherApp .weatherBody .bottomPart .results .weatherResult {
+  border-bottom: 1px solid var(--textColor);
   height: 50px;
-  width: 50px;
-}
-
-h1 {
-  color: var(--textColor);
-  margin: 0px;
-  padding-bottom: 50px;
-}
-
-.far,
-.fas {
-  pointer-events: none;
+  width: 130px;
+  overflow: hidden;
 }
 
 .todo {
@@ -162,16 +173,18 @@ h1 {
   background-image: linear-gradient(120deg, #d1f5d7 0%, #cbdff7 100%);
 }
 
-.todo .todolist {
-  padding: 20px 0;
+.todo .header .far,
+.todo .header .fas {
+  pointer-events: none;
 }
 
-.mainHeader {
-  width: 100vw;
-  height: 200px;
+.todo .header h1 {
+  color: var(--textColor);
+  margin: 0px;
+  padding-bottom: 50px;
 }
 
-.task-input {
+.todo .header .task-input {
   width: 80%;
   padding: 10px 20px;
   margin-right: 20px;
@@ -181,13 +194,7 @@ h1 {
   background-color: var(--bgColor);
 }
 
-.alert1 {
-  margin-top: 20px;
-  font-size: 30px;
-  color: var(--dark-light);
-}
-
-.addBtn {
+.todo .header .addBtn {
   padding: 10px 22px;
   border: none;
   border-radius: 5px;
@@ -200,17 +207,27 @@ h1 {
   transition: color 0.3s, background-color 0.3s;
 }
 
-.addBtn:hover {
+.todo .header .addBtn:hover {
   color: #fff;
   background-color: var(--bgColor);
 }
 
-.todolist h3 {
-  font-size: 20px;
+.todo .header .alert1 {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--dark-light);
+}
+
+.todo .todolist {
+  padding: 20px 0;
+}
+
+.todo .todolist h3 {
+  font-size: 18px;
   margin: 30px 0 60px 0;
 }
 
-.todolist li {
+.todo .todolist li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -225,11 +242,11 @@ h1 {
   text-align: left;
   overflow-wrap: break-word;
   list-style: none;
-  font-size: 24px;
+  font-size: 20px;
   border-bottom: 1px solid grey;
 }
 
-.tools {
+.todo .todolist .tools {
   display: inline-block;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -240,14 +257,14 @@ h1 {
           flex-direction: row;
 }
 
-.tools .timeLeft {
+.todo .todolist .tools .timeLeft {
   font-size: 16px;
   color: var(--color2);
   margin: 15px;
   text-align: center;
 }
 
-.tools button {
+.todo .todolist .tools button {
   padding: 15px 10px;
   border: none;
   background-color: transparent;
@@ -256,25 +273,25 @@ h1 {
   transition: background-color 0.3s;
 }
 
-.tools button:hover {
+.todo .todolist .tools button:hover {
   background-color: #ddd;
 }
 
-.tools .complete {
+.todo .todolist .tools .complete {
   color: var(--textColor);
   font-size: 20px;
 }
 
-.tools .edit {
+.todo .todolist .tools .edit {
   font-weight: bold;
   color: var(--dark);
 }
 
-.tools .delete {
+.todo .todolist .tools .delete {
   color: red;
 }
 
-.tools .completed {
+.todo .todolist .tools .completed {
   font-size: 12px;
   color: var(--textColor);
   text-decoration: line-through;
@@ -294,15 +311,16 @@ h1 {
       -ms-flex-direction: column;
           flex-direction: column;
   position: fixed;
-  bottom: 20px;
+  -webkit-box-shadow: 3px 3px 3px 3px var(--bgColor2);
+          box-shadow: 3px 3px 3px 3px var(--bgColor2);
   left: 50%;
-  top: 60%;
+  top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 800px;
-  height: 20%;
+  width: 50%px;
+  height: 30%;
   color: var(--dark-light);
-  background-image: var(--bgColor);
+  background-color: var(--bgColor2);
 }
 
 .editWindow h3 {
@@ -315,18 +333,20 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
   padding: 10px;
 }
 
 .editWindow .editBody .editAlert {
-  color: var(--bgColor);
+  color: var(--textColor);
   margin-bottom: 20px;
 }
 
@@ -339,14 +359,13 @@ h1 {
 
 .editWindow .editBody .edit-btn {
   width: 20%;
-  height: 100%;
-  display: inline-block;
   padding: 10px 22px;
   margin: 20px;
   border: none;
-  border-radius: 50%;
+  border-radius: 5%;
   color: var(--textColor);
   background-color: var(--bgColor);
+  text-align: center;
   text-transform: uppercase;
   cursor: pointer;
   -webkit-transition: color 0.3s, background-color 0.3s;
@@ -354,7 +373,7 @@ h1 {
 }
 
 .editWindow .editBody .edit-btn:hover {
-  color: #fff;
+  color: var(--dark-light);
   background-color: var(--bgColor);
 }
 /*# sourceMappingURL=style.css.map */

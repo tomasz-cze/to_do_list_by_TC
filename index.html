@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,17 +12,20 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>To do list by TC</title>
 </head>
+
 <body>
     <section class="organizer">
         <div class="mainHeader">
-           
-                <div class="weatherApp">
-                    <h1>Aplikacja pogodowa</h1>
+
+            <div class="weatherApp">
+
+                <div class="welcomeText">Witaj Tomasz! Piękny mamy dziś dzień :)</div>
+                <div class="weatherBody">
                     <div class='topPart'>
                         <input type="text" placeholder="Tutaj wpisz nazwę miasta">
                         <button class="sendBtn">Wyslij</button>
                         <div class="cityName"></div>
-                        <div class="weatherImg" ><img src="" alt=""></div>
+                        <div class="weatherImg"><img src="" alt=""></div>
                     </div>
                     <div class="bottomPart">
                         <div>
@@ -38,58 +42,67 @@
                             <div class="weatherResult pressure"></div>
                             <div class="weatherResult wind"></div>
                         </div>
-                       
+
                     </div>
-            
                 </div>
-      
-            <div    class="clock">
+
+
+            </div>
+
+            <div class="clock">
                 <!-- clock widget start -->
-                <script type="text/javascript"> var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href","https://s.bookcdn.com//css/cl/bw-cl-c22.css?v=0.0.1"); document.getElementsByTagName("head")[0].appendChild(css_file); </script> <div id="tw_22_1183605990"><div style="width:200px; height:px; margin: 0 auto;"><a href="https://booked.com.pl/time/wloclawek-49798">Włocławek</a><br/></div></div> <script type="text/javascript"> function setWidgetData_1183605990(data){ if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = ''; var params = data.results[i]; objMainBlock = document.getElementById('tw_'+params.widget_type+'_'+params.widget_id); if(objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } var clock_timer_1183605990 = -1; widgetSrc = "https://widgets.booked.net/time/info?ver=2;domid=594;type=22;id=1183605990;scode=124;city_id=49798;wlangid=18;mode=1;details=0;background=ffffff;border_color=ffffff;color=686868;add_background=ffffff;add_color=333333;head_color=ffffff;border=0;transparent=0"; var widgetUrl = location.href; widgetSrc += '&ref=' + widgetUrl; var wstrackId = ""; if (wstrackId) { widgetSrc += ';wstrackId=' + wstrackId + ';' } var timeBookedScript = document.createElement("script"); timeBookedScript.setAttribute("type", "text/javascript"); timeBookedScript.src = widgetSrc; document.body.appendChild(timeBookedScript); </script>
+                <script
+                    type="text/javascript"> var css_file = document.createElement("link"); css_file.setAttribute("rel", "stylesheet"); css_file.setAttribute("type", "text/css"); css_file.setAttribute("href", "https://s.bookcdn.com//css/cl/bw-cl-c22.css?v=0.0.1"); document.getElementsByTagName("head")[0].appendChild(css_file); </script>
+                <div id="tw_22_1183605990">
+                    <div style="width:200px; height:px; margin: 0 auto;"><a
+                            href="https://booked.com.pl/time/wloclawek-49798">Włocławek</a><br /></div>
+                </div>
+                <script
+                    type="text/javascript"> function setWidgetData_1183605990(data) { if (typeof (data) != 'undefined' && data.results.length > 0) { for (var i = 0; i < data.results.length; ++i) { var objMainBlock = ''; var params = data.results[i]; objMainBlock = document.getElementById('tw_' + params.widget_type + '_' + params.widget_id); if (objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } var clock_timer_1183605990 = -1; widgetSrc = "https://widgets.booked.net/time/info?ver=2;domid=594;type=22;id=1183605990;scode=124;city_id=49798;wlangid=18;mode=1;details=0;background=ffffff;border_color=ffffff;color=686868;add_background=ffffff;add_color=333333;head_color=ffffff;border=0;transparent=0"; var widgetUrl = location.href; widgetSrc += '&ref=' + widgetUrl; var wstrackId = ""; if (wstrackId) { widgetSrc += ';wstrackId=' + wstrackId + ';' } var timeBookedScript = document.createElement("script"); timeBookedScript.setAttribute("type", "text/javascript"); timeBookedScript.src = widgetSrc; document.body.appendChild(timeBookedScript); </script>
                 <!-- clock widget end -->
             </div>
         </div>
 
 
-    <div class=""></div>
-    <div class="todo">
-        <div class="header">
-            <h1>Dodawanie zadań</h1>
-            <input type="text" class="task-input" placeholder="Tutaj wpisz treść zadania.">
-            <button class="addBtn">Dodaj zadanie</button>
-            <p class="alert1">Zaplnuj co masz do zrobienia!</p>
-        </div>
-        <div class="todolist">
-        
-            <h3>Lista zadań do wykonania:</h3>
-            <ul>
-                <li>pobiegać
-                    <div class="tools">
-                        <div class="timeLeft">
-                            <h4>Pozostało czasu</h4>
-                            <div>3h 15min 45 sek</div>
+        <div class=""></div>
+        <div class="todo">
+            <div class="header">
+                <h1>Dodawanie zadań</h1>
+                <input type="text" class="task-input" placeholder="Tutaj wpisz treść zadania.">
+                <button class="addBtn">Dodaj zadanie</button>
+                <p class="alert1">Zaplnuj co masz do zrobienia!</p>
+            </div>
+            <div class="todolist">
+
+                <h3>Lista zadań do wykonania:</h3>
+                <ul>
+                    <li>pobiegać
+                        <div class="tools">
+                            <div class="timeLeft">
+                                <h4>Pozostało czasu</h4>
+                                <div>3h 15min 45 sek</div>
+                            </div>
+                            <button class="complete"><i class="far fa-check-circle"></i></button>
+                            <button class="edit">EDYTUJ</button>
+                            <button class="delete"><i class="fas fa-times"></i></button>
                         </div>
-                        <button class="complete"><i class="far fa-check-circle"></i></button>
-                        <button class="edit">EDYTUJ</button>
-                        <button class="delete"><i class="fas fa-times"></i></button>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    
-    <div class="editWindow">
-        <h3>Edytuj zadanie:</h3>
-        <div class="editBody">
-            <p class="editAlert"></p>
-            <input type="text" class="editInput" placeholder="Wprowadź zedytowaną treść zadania...">
-            <button class="edit-btn accept">Zatwierdź</button>
-            <button class="edit-btn cancel">Anuluj</button>
+
+        <div class="editWindow">
+            <h3>Edytuj zadanie:</h3>
+            <div class="editBody">
+                <p class="editAlert"></p>
+                <input type="text" class="editInput" placeholder="Wprowadź zedytowaną treść zadania...">
+                <button class="edit-btn accept">Zatwierdź</button>
+                <button class="edit-btn cancel">Anuluj</button>
+            </div>
         </div>
-    </div>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./main.js"></script>
 </body>
-</html>
 
+</html>

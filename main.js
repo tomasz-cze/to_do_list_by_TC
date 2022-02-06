@@ -129,7 +129,11 @@ document.addEventListener('keyup', function (e) {
 	}
 })
 
+//
+//
 // code for weather aplication
+//
+//
 
 
 const input = document.querySelector('input')
@@ -176,7 +180,7 @@ const enterKey = e => {
 		getWeather()
 	}
 }
-
+getWeather()
 // listeners
 btn.addEventListener('click', getWeather)
 input.addEventListener('keyup', enterKey)
