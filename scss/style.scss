@@ -1,0 +1,274 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--dark: rgb(29, 15, 15);
+	--dark-light: rgb(79, 82, 92);
+	--bgColor: white;
+	--color2: rgb(14, 212, 41);
+	--textColor: rgb(0, 30, 94);
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	font-family: 'Lato', sans-serif;
+	margin-top: 120px;
+}
+.organizer {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100vw;
+}
+
+// weather section
+
+.weatherApp {
+	width: 50%;
+	border: 1px solid red;
+	.topPart {
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+		align-items: center;
+		width: 30%;
+		height: 30%;
+		z-index: 10;
+		input {
+			text-align: center;
+			width: 80%;
+			font-size: 25px;
+		}
+		.cityName {
+			font-size: 40px;
+			padding: 10px;
+		}
+		.sendBtn {
+			margin: 10px;
+			font-size: 20px;
+		}
+		.weatherImg {
+			width: 100px;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				height: 120px;
+				width: 120px;
+			}
+		}
+	}
+
+	.bottomPart {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 30vw;
+		height: 30vh;
+		p {
+			text-align: right;
+			display: block;
+			margin: 30px;
+		}
+		.results {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			text-align: center;
+			line-height: 40px;
+			width: 70%;
+			.weatherResult {
+				border-bottom: 1px solid blue;
+				height: 50px;
+				width: 50px;
+			}
+		}
+	}
+}
+
+h1 {
+	color: var(--textColor);
+	margin: 0px;
+	padding-bottom: 50px;
+}
+
+.far,
+.fas {
+	pointer-events: none;
+}
+// section to do
+.todo {
+	width: 1000px;
+	letter-spacing: 2px;
+	background: #fff;
+	box-shadow: 1px 1px 10px 5px rgba(82, 82, 82, 0.2);
+	text-align: center;
+	.header {
+		border-radius: 5px 5px 0 0;
+		padding: 40px;
+		background-image: linear-gradient(120deg, #d1f5d7 0%, #cbdff7 100%);
+	}
+	.todolist {
+		padding: 20px 0;
+	}
+}
+.mainHeader {
+	width: 100vw;
+	height: 200px;
+}
+
+.task-input {
+	width: 80%;
+	padding: 10px 20px;
+	margin-right: 20px;
+	border: none;
+	border-radius: 5px;
+	color: var(--textColor-dark);
+	background-color: var(--bgColor);
+}
+
+.alert1 {
+	margin-top: 20px;
+	font-size: 30px;
+	color: var(--dark-light);
+}
+
+.addBtn {
+	padding: 10px 22px;
+	border: none;
+	border-radius: 5px;
+	color: var(--dark);
+	background-color: var(--bgColor);
+	opacity: 0.7;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: color 0.3s, background-color 0.3s;
+}
+
+.addBtn:hover {
+	color: #fff;
+	background-color: var(--bgColor);
+}
+
+.todolist h3 {
+	font-size: 20px;
+	margin: 30px 0 60px 0;
+}
+
+.todolist li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px;
+	padding-left: 50px;
+	text-align: left;
+	overflow-wrap: break-word;
+	list-style: none;
+	font-size: 24px;
+	border-bottom: 1px solid grey;
+}
+
+.tools {
+	display: inline-block;
+	display: flex;
+	flex-direction: row;
+	.timeLeft {
+		font-size: 16px;
+		color: var(--color2);
+		margin: 15px;
+		text-align: center;
+	}
+	button {
+		padding: 15px 10px;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		transition: background-color 0.3s;
+	}
+	button:hover {
+		background-color: #ddd;
+	}
+	.complete {
+		color: var(--textColor);
+		font-size: 20px;
+	}
+	.edit {
+		font-weight: bold;
+		color: var(--dark);
+	}
+
+	.delete {
+		color: red;
+	}
+	.completed {
+		font-size: 12px;
+		color: var(--textColor);
+		text-decoration: line-through;
+		background-color: var(--color2);
+	}
+}
+
+.editWindow {
+	display: none;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	top: 60%;
+	transform: translate(-50%, -50%);
+	width: 800px;
+	height: 20%;
+	color: var(--dark-light);
+	background-image: var(--bgColor);
+	h3 {
+		padding: 30px;
+		font-size: 25px;
+		text-align: center;
+	}
+	.editBody {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+
+		.editAlert {
+			color: var(--bgColor);
+			margin-bottom: 20px;
+		}
+
+		.editInput {
+			width: 100%;
+			padding: 10px 20px;
+			color: var(--textColor);
+			background-color: var(--bgColor);
+		}
+
+		.edit-btn {
+			width: 20%;
+			height: 100%;
+			display: inline-block;
+			padding: 10px 22px;
+			margin: 20px;
+			border: none;
+			border-radius: 50%;
+			color: var(--textColor);
+			background-color: var(--bgColor);
+			text-transform: uppercase;
+			cursor: pointer;
+			transition: color 0.3s, background-color 0.3s;
+		}
+
+		.edit-btn:hover {
+			color: #fff;
+			background-color: var(--bgColor);
+		}
+	}
+}
