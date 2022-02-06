@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5ad2517ddc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
     <title>To do list by TC</title>
 </head>
 <body>
-    
+    <section class="organizer">
+        <div class="mainHeader">
+            <div    class="weather"></div>
+            <div    class="calendar"></div>
+        </div>
+    </section>
+
+    <div class=""></div>
     <div class="todo">
         <div class="header">
-            <h1>ToDo List - prosta lista zadań w JavaScript</h1>
+            <h1>Dodawanie zadań</h1>
             <input type="text" class="task-input" placeholder="Tutaj wpisz treść zadania.">
             <button class="addBtn">Dodaj zadanie</button>
             <p class="alert1">Zaplnuj co masz do zrobienia!</p>
@@ -26,6 +33,10 @@
             <ul>
                 <li>pobiegać
                     <div class="tools">
+                        <div class="timeLeft">
+                            <h4>Pozostało czasu</h4>
+                            <div>3h 15min 45 sek</div>
+                        </div>
                         <button class="complete"><i class="far fa-check-circle"></i></button>
                         <button class="edit">EDYTUJ</button>
                         <button class="delete"><i class="fas fa-times"></i></button>
