@@ -11,11 +11,16 @@ let addBtn
 let tasksList
 let newTask
 let newTools
+let newTimeLeftTool
+let newTimeLeft
 let editWindow
 let editInput
 let editAlert
 let editBody
 let editedTask
+let s = 3
+let m = 4
+let h = 5
 //functions
 
 const master = () => {
@@ -29,6 +34,14 @@ const addTools = () => {
 	newTools = document.createElement('div')
 	newTools.classList.add('tools')
 	newTask.append(newTools)
+	newTimeLeftTool = document.createElement('div')
+	newTimeLeftTool.classList.add('timeLeftTool')
+	newTimeLeftTool.textContent = 'Pozostało czasu:'
+	newTimeLeft = document.createElement('div')
+	newTimeLeft.classList.add('timeLeft')
+	newTimeLeftTool.append(newTimeLeft)
+	newTimeLeft.textContent = `${h}h ${m}m ${s}s`
+
 	newComplet = document.createElement('button')
 	newComplet.innerHTML = '<i class="far fa-check-circle"></i>'
 	newComplet.classList.add('complete')
@@ -43,7 +56,7 @@ const addTools = () => {
 	newDelete.classList.add('delete')
 
 	// shorter way of writing above
-	newTools.append(newComplet, newEdit, newDelete)
+	newTools.append(newTimeLeftTool, newComplet, newEdit, newDelete)
 }
 
 // function adding new task
@@ -66,7 +79,7 @@ const addTask = () => {
 
 const checkTools = e => {
 	if (e.target.matches('.complete')) {
-		e.target.closest('li').classList.toggle('completed')
+		e.target.closest('li').classList.toggle('complete')
 	} else if (e.target.matches('.edit')) {
 		showEdit(e)
 	} else if (e.target.matches('.delete')) {
@@ -129,12 +142,11 @@ document.addEventListener('keyup', function (e) {
 	}
 })
 
+// -------------------------------------------------------------------
 //
+// code for left side with weather and time
 //
-// code for weather aplication
-//
-//
-
+// -------------------------------------------------------------------
 
 const input = document.querySelector('input')
 const btn = document.querySelector('button')
@@ -145,6 +157,7 @@ const temperature = document.querySelector('.temp')
 const humid = document.querySelector('.humidity')
 const pres = document.querySelector('.pressure')
 const wind = document.querySelector('.wind')
+const currentTime = document.querySelector('.currentTime')
 
 // Api most important information needed to fetch
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?q='
@@ -156,7 +169,7 @@ const getWeather = () => {
 	const city = input.value || 'Poznań'
 	const URL = API_LINK + city + API_KEY + API_UNITS
 
-    //used axios do get API data
+	//used axios do get API data
 	axios.get(URL).then(res => {
 		const weat = res.data.weather[0].description
 		const hum = res.data.main.humidity
@@ -181,6 +194,30 @@ const enterKey = e => {
 	}
 }
 getWeather()
+
 // listeners
 btn.addEventListener('click', getWeather)
 input.addEventListener('keyup', enterKey)
+
+//
+//
+// time showing
+let time
+const actualyTime = document.querySelector('.currentTime')
+
+const showTime = () => {
+	const date = new Date()
+	let m = date.getMinutes()
+	let h = date.getHours()
+	let s = date.getSeconds()
+	let time
+
+	m = m < 10 ? '0' + m : m
+	h = h < 10 ? '0' + h : h
+	s = s < 10 ? '0' + s : s
+
+	time = h + ':' + m + ':' + s
+	actualyTime.innerHTML = time
+}
+showTime()
+setInterval(showTime, 1000)

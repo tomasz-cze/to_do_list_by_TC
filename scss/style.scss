@@ -8,7 +8,7 @@
 	--dark-light: rgb(79, 82, 92);
 	--bgColor: white;
 	--bgColor2: rgb(245, 247, 242);
-	--color2: rgb(14, 212, 41);
+	--color2: rgb(8, 145, 26);
 	--textColor: rgb(0, 30, 94);
 }
 body {
@@ -20,13 +20,12 @@ body {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 95%;
-	margin: 5%;
+	padding: 5%;
 	.mainHeader {
-		width: 100vw;
 		margin-bottom: 50px;
 		display: flex;
-		flex-direction: row;
+justify-content: space-evenly;
+
 		.weatherApp {
 			display: flex;
 			flex-direction: column;
@@ -42,19 +41,37 @@ body {
 				width: 100%;
 				.topPart {
 					display: flex;
-					justify-content: space-between;
-					flex-wrap: wrap;
+					flex-direction: column;
+					justify-content: space-evenly;
 					align-items: center;
 					width: 50%;
+					margin-top: 10%;
+					.topPartSection {
+						padding: 10px;
+						margin: 20px;
+					}
 					input {
-						text-align: center;
 						width: 50%;
+						text-align: center;
 						font-size: 14px;
 					}
 					.cityName {
+						width: 40%;
 						font-size: 25px;
 						padding: 10px;
-						width: 40%;
+						text-align: center;
+					}
+					.clock {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						flex-direction: column;
+						width: 200px;
+						height: 80px;
+						border-radius: 10px;
+						font-size: 35px;
+						background-color: var(--bgColor2);
+						box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.6);
 					}
 					.sendBtn {
 						margin: 10px;
@@ -62,7 +79,9 @@ body {
 						width: 20%;
 					}
 					.weatherImg {
-						width: 40%;
+						display: flex;
+						justify-content: center;
+						width: 100%;
 						img {
 							height: 100px;
 							width: 100px;
@@ -101,7 +120,7 @@ body {
 }
 // section to do
 .todo {
-	width: 1000px;
+	width: 900px;
 	letter-spacing: 2px;
 	background: #fff;
 	box-shadow: 1px 1px 10px 5px rgba(82, 82, 82, 0.2);
@@ -157,25 +176,48 @@ body {
 			font-size: 18px;
 			margin: 30px 0 60px 0;
 		}
-		li {
+		ul li {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			margin: 15px;
 			padding-left: 50px;
 			text-align: left;
+
 			overflow-wrap: break-word;
 			list-style: none;
 			font-size: 20px;
 			border-bottom: 1px solid grey;
+		}
+		.complete {
+			font-size: 12px;
+			color: var(--textColor);
+			text-decoration: line-through;
+			background-color: var(--color2);
+		
+		}
+		i {
+			pointer-events: none;
 		}
 
 		.tools {
 			display: inline-block;
 			display: flex;
 			flex-direction: row;
-			.timeLeft {
-				font-size: 16px;
+			.goalTimeTool {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				color: var(--textColor);
+				font-size: 10px;
+				.goalData {
+					margin-top: 10px;
+					border-top: 1px solid black;
+				}
+				
+			}
+			.timeLeftTool {
+				font-size: 10px;
 				color: var(--color2);
 				margin: 15px;
 				text-align: center;
@@ -202,12 +244,7 @@ body {
 			.delete {
 				color: red;
 			}
-			.completed {
-				font-size: 12px;
-				color: var(--textColor);
-				text-decoration: line-through;
-				background-color: var(--color2);
-			}
+			
 		}
 	}
 }
@@ -234,7 +271,7 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-        flex-wrap: wrap;
+		flex-wrap: wrap;
 		width: 100%;
 		padding: 10px;
 
@@ -258,7 +295,7 @@ body {
 			border-radius: 5%;
 			color: var(--textColor);
 			background-color: var(--bgColor);
-            text-align: center;
+			text-align: center;
 			text-transform: uppercase;
 			cursor: pointer;
 			transition: color 0.3s, background-color 0.3s;
