@@ -13,6 +13,17 @@ let newTask
 let newTools
 let newTimeLeftTool
 let newTimeLeft
+let newGoalDay
+let newGoalMonth
+let newGoalYear
+let goalTimeTool
+let goalTimeData
+let goalWeekDay
+let goalTime
+let dayName
+let setGoalDay
+let setGoalMonth
+let setGoalYear
 let editWindow
 let editInput
 let editAlert
@@ -31,9 +42,46 @@ const master = () => {
 // function adding  div with tools to new task
 
 const addTools = () => {
+
+
+
+// all tools created
 	newTools = document.createElement('div')
 	newTools.classList.add('tools')
 	newTask.append(newTools)
+
+	// new goalTime tools created
+	newGoalTimeTool = document.createElement('div')
+	newGoalTimeTool.classList.add('goalTimeTool')
+	newGoalTimeTool.textContent = 'Termin wykonania zadania'
+	// new
+
+	newGoalData = document.createElement('div')
+	newGoalData.classList.add('goalData')
+	//
+	newGoalDay = document.createElement('span')
+	newGoalDay.classList.add('goalDay')
+	newGoalDay.textContent = setGoalDay.value + "-"
+	newGoalMonth = document.createElement('span')
+	newGoalMonth.classList.add('goalMonth')
+	newGoalMonth.textContent = setGoalMonth.value + "-"
+	newGoalYear = document.createElement('span')
+	newGoalYear.classList.add('goalYear')
+	newGoalYear.textContent = setGoalYear.value 
+
+	newGoalData.append(newGoalDay, newGoalMonth, newGoalYear)
+
+	newGoalWeekDay = document.createElement('div')
+	newGoalWeekDay.classList.add('goalWeekDay')
+	newGoalWeekDay.textContent = dayName
+
+	newGoalTime = document.createElement('div')
+	newGoalTime.classList.add('goalTime')
+
+	//new Goal time tools added
+	newGoalTimeTool.append(newGoalData, newGoalWeekDay, newGoalTime)
+
+	// new timeLeft tool created
 	newTimeLeftTool = document.createElement('div')
 	newTimeLeftTool.classList.add('timeLeftTool')
 	newTimeLeftTool.textContent = 'Pozostało czasu:'
@@ -56,7 +104,7 @@ const addTools = () => {
 	newDelete.classList.add('delete')
 
 	// shorter way of writing above
-	newTools.append(newTimeLeftTool, newComplet, newEdit, newDelete)
+	newTools.append(newGoalTimeTool,newTimeLeftTool, newComplet, newEdit, newDelete)
 }
 
 // function adding new task
@@ -67,7 +115,9 @@ const addTask = () => {
 		newTask = document.createElement('li')
 		newTask.textContent = taskInput.value
 		tasksList.append(newTask)
+		getWeekDay(setGoalYear.value, setGoalMonth.value, setGoalDay.value)
 		addTools()
+
 	} else {
 		alert1.style.color = 'red'
 		alert1.textContent = 'Wpisz treść zadania!'
@@ -86,6 +136,39 @@ const checkTools = e => {
 		e.target.closest('li').remove()
 	}
 }
+
+//function checking which day of week is in task goal time
+
+const getWeekDay = (y,m,d) => {
+	let setDate = new Date(`${y}- ${m}- ${d}`)	
+	let weekDay = setDate.getDay()
+	switch (weekDay) {
+		case 0:
+		dayName = "Niedziela";
+		break;
+	  case 1:
+		dayName = "Poniedziałek";
+		break;
+	  case 2:
+		dayName = "Wtorek";
+		break;
+	  case 3:
+		dayName = "Środa";
+		break;
+	  case 4:
+		dayName = "Czwartek";
+		break;
+	  case 5:
+		dayName = "Piątek";
+		break;
+	  case 6:
+		dayName = "Sobota";
+			break;
+	
+		default:
+			break;
+	}
+	}
 
 // function showing editWindow
 const showEdit = e => {
@@ -125,6 +208,11 @@ const PrepDOMElements = () => {
 	editBody = document.querySelector('.editBody')
 	editWindow = document.querySelector('.editWindow')
 	editInput = document.querySelector('.editInput')
+	setGoalDay = document.querySelector('#eventDay')
+	setGoalMonth = document.querySelector('#eventMonth')
+	setGoalYear = document.querySelector('#eventYear')
+	
+	
 }
 // function listetning for events
 const PrepDOMEvents = () => {

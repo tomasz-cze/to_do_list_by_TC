@@ -63,6 +63,18 @@
                     <input type="text" class="task-input" placeholder="Tutaj wpisz treść zadania.">
                     <button class="addBtn">Dodaj zadanie</button>
                     <p class="alert1">Zaplanuj co masz do zrobienia!</p>
+                    <table class="date">
+                        <tr>
+                            <td><label for="eventDay">Dzień:</label></td>
+                            <td><label for="eventMonth">Miesiąc:</label></td>
+                            <td><label for="eventYear">Rok:</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type='number' id="eventDay" maxlength="2" value=""></td>
+                            <td><input type='number' id="eventMonth" maxlength="2" value=""></td>
+                            <td><input type='number' id="eventYear" maxlength="4" value=""></td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="todolist">
 
@@ -71,7 +83,9 @@
                         <li>pobiegać
                             <div class="tools">
                                 <div class="goalTimeTool">Termin wykonania
-                                    <div class="goalData">20-05-2022</div>
+                                    <div class="goalData">
+                                        <span class="goalDay"></span>-<span class="goalMonth"></span>-<span class="goalYear"></span>
+                                        </div>
                                     <div class="goalWeekDay">Poniedziałek</div>
                                     <div class="goalTime">14:00:00</div>
                                 </div>
