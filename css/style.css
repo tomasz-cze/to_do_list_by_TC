@@ -195,11 +195,13 @@ body {
 
 .todo {
   width: 900px;
+  margin-left: 30px;
   letter-spacing: 2px;
   background: #fff;
   -webkit-box-shadow: 1px 1px 10px 5px rgba(82, 82, 82, 0.2);
           box-shadow: 1px 1px 10px 5px rgba(82, 82, 82, 0.2);
   text-align: center;
+  border-radius: 15px;
 }
 
 .todo .header {
@@ -262,6 +264,30 @@ body {
   margin: 30px 0 60px 0;
 }
 
+.todo .todolist .taskOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  width: 100%;
+}
+
+.todo .todolist .taskOptions .taskOption1 {
+  width: 110px;
+  border-left: 1px solid red;
+  font-size: 10px;
+  overflow-wrap: normal;
+}
+
+.todo .todolist .taskOptions .taskOption2 {
+  width: 60px;
+  border-left: 1px solid red;
+  font-size: 8px;
+  overflow-wrap: normal;
+}
+
 .todo .todolist ul li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,7 +301,6 @@ body {
   margin: 15px;
   padding-left: 50px;
   text-align: left;
-  overflow-wrap: break-word;
   list-style: none;
   font-size: 20px;
   border-bottom: 1px solid grey;
@@ -303,6 +328,12 @@ body {
           flex-direction: row;
 }
 
+.todo .todolist .tools .fas,
+.todo .todolist .tools .far {
+  margin: 0 5px;
+  font-size: 20px;
+}
+
 .todo .todolist .tools .goalTimeTool {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -314,20 +345,25 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 45px;
   color: var(--textColor);
   font-size: 10px;
 }
 
 .todo .todolist .tools .goalTimeTool .goalData {
-  margin-top: 10px;
-  border-top: 1px solid black;
+  margin-top: 5px;
 }
 
 .todo .todolist .tools .timeLeftTool {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 10px;
   color: var(--color2);
-  margin: 15px;
-  text-align: center;
+  margin-right: 45px;
 }
 
 .todo .todolist .tools button {
@@ -335,12 +371,15 @@ body {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
 }
 
 .todo .todolist .tools button:hover {
-  background-color: #ddd;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .todo .todolist .tools .complete {

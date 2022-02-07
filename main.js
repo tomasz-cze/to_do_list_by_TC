@@ -1,4 +1,4 @@
-// data taken from html
+// date taken from html
 
 const editBtnAccept = document.querySelector('.edit-btn accept')
 const editBtnCancel = document.querySelector('.edit-btn cancel')
@@ -9,6 +9,10 @@ let taskInput
 let alert1
 let addBtn
 let tasksList
+
+let goalDay
+let goalMonth
+let goalYear
 let newTask
 let newTools
 let newTimeLeftTool
@@ -17,7 +21,7 @@ let newGoalDay
 let newGoalMonth
 let newGoalYear
 let goalTimeTool
-let goalTimeData
+let goalTimeDate
 let goalWeekDay
 let goalTime
 let dayName
@@ -29,6 +33,7 @@ let editInput
 let editAlert
 let editBody
 let editedTask
+let liList
 let s = 3
 let m = 4
 let h = 5
@@ -53,11 +58,11 @@ const addTools = () => {
 	// new goalTime tools created
 	newGoalTimeTool = document.createElement('div')
 	newGoalTimeTool.classList.add('goalTimeTool')
-	newGoalTimeTool.textContent = 'Termin wykonania zadania'
+	
 	// new
 
-	newGoalData = document.createElement('div')
-	newGoalData.classList.add('goalData')
+	newGoalDate = document.createElement('div')
+	newGoalDate.classList.add('goalDate')
 	//
 	newGoalDay = document.createElement('span')
 	newGoalDay.classList.add('goalDay')
@@ -69,7 +74,7 @@ const addTools = () => {
 	newGoalYear.classList.add('goalYear')
 	newGoalYear.textContent = setGoalYear.value 
 
-	newGoalData.append(newGoalDay, newGoalMonth, newGoalYear)
+	newGoalDate.append(newGoalDay, newGoalMonth, newGoalYear)
 
 	newGoalWeekDay = document.createElement('div')
 	newGoalWeekDay.classList.add('goalWeekDay')
@@ -79,12 +84,11 @@ const addTools = () => {
 	newGoalTime.classList.add('goalTime')
 
 	//new Goal time tools added
-	newGoalTimeTool.append(newGoalData, newGoalWeekDay, newGoalTime)
+	newGoalTimeTool.append(newGoalDate, newGoalWeekDay, newGoalTime)
 
 	// new timeLeft tool created
 	newTimeLeftTool = document.createElement('div')
 	newTimeLeftTool.classList.add('timeLeftTool')
-	newTimeLeftTool.textContent = 'Pozostało czasu:'
 	newTimeLeft = document.createElement('div')
 	newTimeLeft.classList.add('timeLeft')
 	newTimeLeftTool.append(newTimeLeft)
@@ -95,7 +99,7 @@ const addTools = () => {
 	newComplet.classList.add('complete')
 	newTools.append(newComplet)
 	newEdit = document.createElement('button')
-	newEdit.textContent = 'EDYTUJ'
+	newEdit.innerHTML = `<i class="fas fa-edit"></i`
 	newTools.append(newEdit)
 	newEdit.classList.add('edit')
 	newDelete = document.createElement('button')
@@ -199,7 +203,7 @@ const checkEdit = e => {
 	}
 }
 
-// function downloading data from elements
+// function downloading date from elements
 const PrepDOMElements = () => {
 	taskInput = document.querySelector('.task-input')
 	alert1 = document.querySelector('.alert1')
@@ -212,7 +216,6 @@ const PrepDOMElements = () => {
 	setGoalMonth = document.querySelector('#eventMonth')
 	setGoalYear = document.querySelector('#eventYear')
 	
-	
 }
 // function listetning for events
 const PrepDOMEvents = () => {
@@ -221,14 +224,7 @@ const PrepDOMEvents = () => {
 	editBody.addEventListener('click', checkEdit)
 }
 
-// listeners
 
-document.addEventListener('DOMContentLoaded', master)
-document.addEventListener('keyup', function (e) {
-	if (e.keyCode === 13) {
-		addTask()
-	}
-})
 
 // -------------------------------------------------------------------
 //
@@ -276,16 +272,16 @@ const getWeather = () => {
 	})
 }
 // function on enter keydown
-const enterKey = e => {
-	if (e.key === 'Enter') {
-		getWeather()
-	}
-}
+// const enterKey = e => {
+// 	if (e.key === 'Enter') {
+// 		getWeather()
+// 	}
+// }
 getWeather()
 
 // listeners
 btn.addEventListener('click', getWeather)
-input.addEventListener('keyup', enterKey)
+// input.addEventListener('keyup', enterKey)
 
 //
 //
@@ -309,3 +305,50 @@ const showTime = () => {
 }
 showTime()
 setInterval(showTime, 1000)
+
+//-------------------------------------------------------
+//funkcja sprawdzający pozostaly czas
+let hourLeft = document.querySelector('.h')
+let minutLeft = document.querySelector('.m')
+let secondLeft = document.querySelector('.s')
+
+const checkTime = (e) => {
+	let setDay = e.target
+	let setMonth
+	let setYear
+	// const result = currentTime - setTime
+	
+	console.log('checkTIME');
+	console.log(setDay);
+	
+}
+const setingTime = () => {
+		liList = document.querySelectorAll('li')
+		list = liList.forEach(element => {
+		checkTime(element)		
+	});
+		
+	console.log('settingTIME');
+	console.log(liList);
+} 
+setingTime()
+
+
+
+
+
+
+
+
+// const checkTimeLeft = timeLeft => {
+// 	for (let i=0; i < )
+// }
+
+// listeners
+
+document.addEventListener('DOMContentLoaded', master)
+document.addEventListener('keyup', function (e) {
+	if (e.keyCode === 13) {
+		addTask()
+	}
+})
