@@ -224,7 +224,7 @@ body {
 .todo .header .task-input {
   width: 80%;
   padding: 10px 20px;
-  margin-right: 20px;
+  margin: 30px 0;
   border: none;
   border-radius: 5px;
   color: var(--textColor-dark);
@@ -268,6 +268,10 @@ body {
           justify-content: center;
   margin: 20px;
   font-size: 12px;
+}
+
+.todo .header .date input {
+  width: 60px;
 }
 
 .todo .todolist {
@@ -525,5 +529,9 @@ body {
 .editWindow .editBody .edit-btn:hover {
   color: var(--dark-light);
   background-color: var(--bgColor);
+}
+
+.editWindow .editBody .dateEdit input {
+  width: 60px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -30,6 +30,7 @@ let setGoalMonth
 let setGoalYear
 let editWindow
 let editInput
+let editInputDate
 let editAlert
 let editBody
 let editedTask
@@ -225,6 +226,20 @@ const closeEdit = () => {
 
 const editTask = e => {
 	editedTask.firstChild.textContent = editInput.value
+	const editedDay = editedTask.querySelector('.goalDay')
+	const newEditDay = editInputDate.querySelector('.editEventDay')
+	editedDay.textContent = newEditDay.value
+
+	const editedMonth = editedTask.querySelector('.goalMonth')
+	const newEditMonth = editInputDate.querySelector('.editEventMonth')
+	editedMonth.textContent = newEditMonth.value
+
+	const editedYear = editedTask.querySelector('.goalYear')
+	const newEditYear = editInputDate.querySelector('.editEventYear')
+	newEditYear.textContent = editedYear.value
+	console.log(newEditDay);
+	console.log(newEditMonth);
+	console.log(newEditYear);
 	// editedTask.firstChild.textContent =
 }
 //FUNCTION CHECKING WHICH BUTTON IS CLICKED in edit Window
@@ -247,6 +262,7 @@ const PrepDOMElements = () => {
 	editBody = document.querySelector('.editBody')
 	editWindow = document.querySelector('.editWindow')
 	editInput = document.querySelector('.editInput')
+	editInputDate = document.querySelector('.editDate')
 	setGoalDay = document.querySelector('#eventDay')
 	setGoalMonth = document.querySelector('#eventMonth')
 	setGoalYear = document.querySelector('#eventYear')

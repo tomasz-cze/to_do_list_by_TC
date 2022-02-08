@@ -116,58 +116,8 @@
                                 <button class="delete"><i class="fas fa-times"></i></button>
                             </div>
                         </li>
-                        <li>pobiegać
-                            <div class="tools">
-                                <div class="goalTimeTool">
-                                    <div class="goaldate">
-                                        <span class="goalDay">25</span>-<span class="goalMonth">02</span>-<span
-                                            class="goalYear">2022</span>
-                                    </div>
-                                    <div class="goalWeekDay">Poniedziałek</div>
-                                </div>
-                                <div class="timeLeftTool">
-                                    <div class="timeLeft">
-                                        <div class="timeLeftNameCard dName">Dni:</div>
-                                        <div class="timeSmallCard d"></div>
-                                        <div class="timeLeftNameCard hName">Godzin:</div>
-                                        <div class="timeSmallCard h"></div>
-                                        <div class="timeLeftNameCard mName">Minut:</div>
-                                        <div class="timeSmallCard m"></div>
-                                        <div class="timeLeftNameCard sName">Sekund:</div>
-                                        <div class="timeSmallCard s"></div>
-                                    </div>
-                                </div>
-                                <button class="complete"><i class="far fa-check-circle"></i></button>
-                                <button class="edit"><i class="fas fa-edit"></i></button>
-                                <button class="delete"><i class="fas fa-times"></i></button>
-                            </div>
-                        </li>
-                        <li>pobiegać
-                            <div class="tools">
-                                <div class="goalTimeTool">
-                                    <div class="goaldate">
-                                        <span class="goalDay">25</span>-<span class="goalMonth">02</span>-<span
-                                            class="goalYear">2022</span>
-                                    </div>
-                                    <div class="goalWeekDay">Poniedziałek</div>
-                                </div>
-                                <div class="timeLeftTool">
-                                    <div class="timeLeft">
-                                        <div class="timeLeftNameCard dName">Dni:</div>
-                                        <div class="timeSmallCard d"></div>
-                                        <div class="timeLeftNameCard hName">Godzin:</div>
-                                        <div class="timeSmallCard h"></div>
-                                        <div class="timeLeftNameCard mName">Minut:</div>
-                                        <div class="timeSmallCard m"></div>
-                                        <div class="timeLeftNameCard sName">Sekund:</div>
-                                        <div class="timeSmallCard s"></div>
-                                    </div>
-                                </div>
-                                <button class="complete"><i class="far fa-check-circle"></i></button>
-                                <button class="edit"><i class="fas fa-edit"></i></button>
-                                <button class="delete"><i class="fas fa-times"></i></button>
-                            </div>
-                        </li>
+                     
+                      
                     </ul>
                 </div>
             </div>
@@ -178,6 +128,18 @@
                 <div class="editBody">
                     <p class="editAlert"></p>
                     <input type="text" class="editInput" placeholder="Wprowadź zedytowaną treść zadania...">
+                    <table class="editDate">
+                        <tr>
+                            <td><label for="eventDay">Dzień:</label></td>
+                            <td><label for="eventMonth">Miesiąc:</label></td>
+                            <td><label for="eventYear">Rok:</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type='number' class="editEventDay" maxlength="2" value=""></td>
+                            <td><input type='number' class="editEventMonth" maxlength="2" value=""></td>
+                            <td><input type='number' class="editEventYear" maxlength="4" value=""></td>
+                        </tr>
+                    </table>
                     <button class="edit-btn accept">Zatwierdź</button>
                     <button class="edit-btn cancel">Anuluj</button>
                 </div>
