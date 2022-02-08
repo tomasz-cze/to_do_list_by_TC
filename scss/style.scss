@@ -7,7 +7,7 @@
 	--dark: rgb(29, 15, 15);
 	--dark-light: rgb(79, 82, 92);
 	--bgColor: white;
-	--bgColor2: rgb(245, 247, 242);
+	--bgColor2: rgb(240, 240, 240);
 	--color2: rgb(8, 145, 26);
 	--textColor: rgb(0, 30, 94);
 }
@@ -152,19 +152,20 @@ body {
 		}
 
 		.addBtn {
-			padding: 10px 22px;
+			padding: 8px 15px;
 			border: none;
-			border-radius: 5px;
+			border-radius: 15px;
 			color: var(--dark);
 			background-color: var(--bgColor);
 			opacity: 0.7;
 			text-transform: uppercase;
 			cursor: pointer;
-			transition: color 0.3s, background-color 0.3s;
+			font-weight: bold;
+			transition: transform 0.3s, background-color 0.3s;
 		}
 		.addBtn:hover {
-			color: #fff;
-			background-color: var(--bgColor);
+		transform: scale(1.2);
+			background-color: var(--bgColor2);
 		}
 		.alert1 {
 			margin-top: 20px;
@@ -174,7 +175,7 @@ body {
 		.date {
 			display: flex;
 			justify-content: center;
-			margin: 20px ;
+			margin: 20px;
 			font-size: 12px;
 		}
 	}
@@ -235,29 +236,44 @@ body {
 			.goalTimeTool {
 				display: flex;
 				flex-direction: column;
+				justify-content: center;
 				align-items: center;
 				margin-right: 45px;
 				color: var(--textColor);
 				font-size: 10px;
 				.goalData {
-					
 					margin-top: 5px;
 				}
 			}
 			.timeLeftTool {
 				display: flex;
 				align-items: center;
+				justify-content: center;
 				font-size: 10px;
-				width: 70px;
+				width: 90px;
 				color: var(--color2);
 				margin-right: 30px;
-			
+
 				.timeLeft {
 					display: flex;
-				flex-direction: row;
-					width: 70px;
+					flex-direction: column;
+					justify-content: space-between;
+					text-align: center;
+
+					width: 100px;
+					.timeLeftNameCard {
+						color: var(--textColor);
+					}
+					.timeSmallCard {
+						margin: 2px;
+						width: 90px;
+						background-color: var(--bgColor2);
+						border-radius: 5px;
+						box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+						font-weight: bold;
+						font-size: 10px;
+					}
 				}
-				
 			}
 			button {
 				padding: 15px 10px;

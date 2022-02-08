@@ -9,7 +9,7 @@
   --dark: rgb(29, 15, 15);
   --dark-light: rgb(79, 82, 92);
   --bgColor: white;
-  --bgColor2: rgb(245, 247, 242);
+  --bgColor2: rgb(240, 240, 240);
   --color2: rgb(8, 145, 26);
   --textColor: rgb(0, 30, 94);
 }
@@ -232,21 +232,25 @@ body {
 }
 
 .todo .header .addBtn {
-  padding: 10px 22px;
+  padding: 8px 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   color: var(--dark);
   background-color: var(--bgColor);
   opacity: 0.7;
   text-transform: uppercase;
   cursor: pointer;
-  -webkit-transition: color 0.3s, background-color 0.3s;
-  transition: color 0.3s, background-color 0.3s;
+  font-weight: bold;
+  -webkit-transition: background-color 0.3s, -webkit-transform 0.3s;
+  transition: background-color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
+  transition: transform 0.3s, background-color 0.3s, -webkit-transform 0.3s;
 }
 
 .todo .header .addBtn:hover {
-  color: #fff;
-  background-color: var(--bgColor);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  background-color: var(--bgColor2);
 }
 
 .todo .header .alert1 {
@@ -353,6 +357,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -372,8 +379,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 10px;
-  width: 70px;
+  width: 90px;
   color: var(--color2);
   margin-right: 30px;
 }
@@ -382,11 +392,30 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 70px;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  width: 100px;
+}
+
+.todo .todolist .tools .timeLeftTool .timeLeft .timeLeftNameCard {
+  color: var(--textColor);
+}
+
+.todo .todolist .tools .timeLeftTool .timeLeft .timeSmallCard {
+  margin: 2px;
+  width: 90px;
+  background-color: var(--bgColor2);
+  border-radius: 5px;
+  -webkit-box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 10px;
 }
 
 .todo .todolist .tools button {

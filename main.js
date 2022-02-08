@@ -86,16 +86,45 @@ const addTools = () => {
 	newTimeLeft = document.createElement('div')
 	newTimeLeft.classList.add('timeLeft')
 	newTimeLeftTool.append(newTimeLeft)
+
+	newTimeLeftNameCardD = document.createElement('div')
+	newTimeLeftNameCardD.classList.add('dName')
+	newTimeLeftNameCardD.textContent = 'Dni:'
+	newTimeLeftNameCardD.classList.add('timeLeftNameCard')
 	newDivD = document.createElement('div')
 	newDivD.classList.add('d')
+	newDivD.classList.add('timeSmallCard')
+
+	
+	newTimeLeftNameCardH = document.createElement('div')
+	newTimeLeftNameCardH.classList.add('hName')
+	newTimeLeftNameCardH.textContent = 'Godzin:'
+	newTimeLeftNameCardH.classList.add('timeLeftNameCard')
 	newDivH = document.createElement('div')
 	newDivH.classList.add('h')
+	newDivH.classList.add('timeSmallCard')
+
+
+	newTimeLeftNameCardM = document.createElement('div')
+	newTimeLeftNameCardM.classList.add('mName')
+	newTimeLeftNameCardM.textContent = 'Minut:'
+	newTimeLeftNameCardM.classList.add('timeLeftNameCard')
 	newDivM = document.createElement('div')
 	newDivM.classList.add('m')
+	newDivM.classList.add('timeSmallCard')
+	
+	newTimeLeftNameCardS = document.createElement('div')
+	newTimeLeftNameCardS.classList.add('sName')
+	newTimeLeftNameCardS.textContent = 'Sekund:'
+	newTimeLeftNameCardS.classList.add('timeLeftNameCard')
 	newDivS = document.createElement('div')
 	newDivS.classList.add('s')
-	newTimeLeft.append(newDivD, newDivH, newDivM, newDivS)
-	newTimeLeft.textContent = `${h}h ${m}m ${s}s`
+	newDivS.classList.add('timeSmallCard')
+	
+
+
+	newTimeLeft.append(newTimeLeftNameCardD, newDivD, newTimeLeftNameCardH, newDivH, newTimeLeftNameCardM, newDivM, newTimeLeftNameCardS, newDivS)
+    
 
 	newComplet = document.createElement('button')
 	newComplet.innerHTML = '<i class="far fa-check-circle"></i>'
@@ -328,7 +357,7 @@ const checkTime = e => {
 	let setLeftMinute = e.querySelector('.m')
 	let setLeftSecond = e.querySelector('.s')
 
-	taskTime = new Date(`${setYear}-${setMonth}-${setDay}`)
+	taskTime = new Date(`${parseInt(setYear)}-${parseInt(setMonth)}-${parseInt(setDay)}`)
 	const currentTimeSystem = new Date()
 	let result = taskTime - currentTimeSystem 
 	const day = Math.floor(result / 1000 / 60 / 60 / 24)
@@ -340,7 +369,6 @@ const checkTime = e => {
 	setLeftHour.textContent = hour
 	setLeftMinute.textContent = minute
 	setLeftSecond.textContent = second
-
 }
 const checkLi = () => {
 	liList = document.querySelectorAll('li')
@@ -355,6 +383,7 @@ const setingTime = () => {
 }
 
 setInterval(setingTime, 1000)
+clearInterval(setingTime)
 
 
 //-------------------------------------------------
