@@ -168,7 +168,8 @@ const checkTools = e => {
 	} else if (e.target.matches('.edit')) {
 		showEdit(e)
 	} else if (e.target.matches('.delete')) {
-		e.target.closest('li').remove()
+		// e.target.closest('li').remove()
+		confirmDelete(e)
 	}
 }
 
@@ -388,6 +389,14 @@ clearInterval(setingTime)
 
 //-------------------------------------------------
 // main listeners
+
+const confirmDelete = (e) => {
+	let textConfirm = "Czy na pewno chcesz skasować zadanie?"
+	if (confirm(textConfirm) == true) {
+		e.target.closest('li').remove()
+	} 
+}
+
 
 document.addEventListener('DOMContentLoaded', master)
 document.addEventListener('keyup', function (e) {
