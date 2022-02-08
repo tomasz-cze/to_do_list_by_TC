@@ -145,7 +145,6 @@ body {
 			width: 80%;
 			padding: 10px 20px;
 			margin-right: 20px;
-			margin-bottom: 30px;
 			border: none;
 			border-radius: 5px;
 			color: var(--textColor-dark);
@@ -175,7 +174,7 @@ body {
 		.date {
 			display: flex;
 			justify-content: center;
-			margin: 20px 0 ;
+			margin: 20px ;
 			font-size: 12px;
 		}
 	}
@@ -249,8 +248,16 @@ body {
 				display: flex;
 				align-items: center;
 				font-size: 10px;
+				width: 70px;
 				color: var(--color2);
-				margin-right: 45px;
+				margin-right: 30px;
+			
+				.timeLeft {
+					display: flex;
+				flex-direction: row;
+					width: 70px;
+				}
+				
 			}
 			button {
 				padding: 15px 10px;

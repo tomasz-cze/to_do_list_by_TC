@@ -47,32 +47,26 @@ const master = () => {
 // function adding  div with tools to new task
 
 const addTools = () => {
-
-
-
-// all tools created
+	// all tools created
 	newTools = document.createElement('div')
 	newTools.classList.add('tools')
 	newTask.append(newTools)
-
 	// new goalTime tools created
 	newGoalTimeTool = document.createElement('div')
 	newGoalTimeTool.classList.add('goalTimeTool')
-	
 	// new
-
 	newGoalDate = document.createElement('div')
 	newGoalDate.classList.add('goalDate')
 	//
 	newGoalDay = document.createElement('span')
 	newGoalDay.classList.add('goalDay')
-	newGoalDay.textContent = setGoalDay.value + "-"
+	newGoalDay.textContent = setGoalDay.value + '-'
 	newGoalMonth = document.createElement('span')
 	newGoalMonth.classList.add('goalMonth')
-	newGoalMonth.textContent = setGoalMonth.value + "-"
+	newGoalMonth.textContent = setGoalMonth.value + '-'
 	newGoalYear = document.createElement('span')
 	newGoalYear.classList.add('goalYear')
-	newGoalYear.textContent = setGoalYear.value 
+	newGoalYear.textContent = setGoalYear.value
 
 	newGoalDate.append(newGoalDay, newGoalMonth, newGoalYear)
 
@@ -92,6 +86,15 @@ const addTools = () => {
 	newTimeLeft = document.createElement('div')
 	newTimeLeft.classList.add('timeLeft')
 	newTimeLeftTool.append(newTimeLeft)
+	newDivD = document.createElement('div')
+	newDivD.classList.add('d')
+	newDivH = document.createElement('div')
+	newDivH.classList.add('h')
+	newDivM = document.createElement('div')
+	newDivM.classList.add('m')
+	newDivS = document.createElement('div')
+	newDivS.classList.add('s')
+	newTimeLeft.append(newDivD, newDivH, newDivM, newDivS)
 	newTimeLeft.textContent = `${h}h ${m}m ${s}s`
 
 	newComplet = document.createElement('button')
@@ -108,7 +111,7 @@ const addTools = () => {
 	newDelete.classList.add('delete')
 
 	// shorter way of writing above
-	newTools.append(newGoalTimeTool,newTimeLeftTool, newComplet, newEdit, newDelete)
+	newTools.append(newGoalTimeTool, newTimeLeftTool, newComplet, newEdit, newDelete)
 }
 
 // function adding new task
@@ -121,7 +124,6 @@ const addTask = () => {
 		tasksList.append(newTask)
 		getWeekDay(setGoalYear.value, setGoalMonth.value, setGoalDay.value)
 		addTools()
-
 	} else {
 		alert1.style.color = 'red'
 		alert1.textContent = 'Wpisz treść zadania!'
@@ -141,38 +143,39 @@ const checkTools = e => {
 	}
 }
 
+
 //function checking which day of week is in task goal time
 
-const getWeekDay = (y,m,d) => {
-	let setDate = new Date(`${y}- ${m}- ${d}`)	
+const getWeekDay = (y, m, d) => {
+	let setDate = new Date(`${y}- ${m}- ${d}`)
 	let weekDay = setDate.getDay()
 	switch (weekDay) {
 		case 0:
-		dayName = "Niedziela";
-		break;
-	  case 1:
-		dayName = "Poniedziałek";
-		break;
-	  case 2:
-		dayName = "Wtorek";
-		break;
-	  case 3:
-		dayName = "Środa";
-		break;
-	  case 4:
-		dayName = "Czwartek";
-		break;
-	  case 5:
-		dayName = "Piątek";
-		break;
-	  case 6:
-		dayName = "Sobota";
-			break;
-	
+			dayName = 'Niedziela'
+			break
+		case 1:
+			dayName = 'Poniedziałek'
+			break
+		case 2:
+			dayName = 'Wtorek'
+			break
+		case 3:
+			dayName = 'Środa'
+			break
+		case 4:
+			dayName = 'Czwartek'
+			break
+		case 5:
+			dayName = 'Piątek'
+			break
+		case 6:
+			dayName = 'Sobota'
+			break
+
 		default:
-			break;
+			break
 	}
-	}
+}
 
 // function showing editWindow
 const showEdit = e => {
@@ -182,6 +185,8 @@ const showEdit = e => {
 }
 
 // function closing editWindow
+
+
 
 const closeEdit = () => {
 	editWindow.style.display = 'none'
@@ -215,7 +220,6 @@ const PrepDOMElements = () => {
 	setGoalDay = document.querySelector('#eventDay')
 	setGoalMonth = document.querySelector('#eventMonth')
 	setGoalYear = document.querySelector('#eventYear')
-	
 }
 // function listetning for events
 const PrepDOMEvents = () => {
@@ -224,13 +228,12 @@ const PrepDOMEvents = () => {
 	editBody.addEventListener('click', checkEdit)
 }
 
-
-
 // -------------------------------------------------------------------
 //
 // code for left side with weather and time
 //
 // -------------------------------------------------------------------
+
 
 const input = document.querySelector('input')
 const btn = document.querySelector('button')
@@ -307,44 +310,55 @@ showTime()
 setInterval(showTime, 1000)
 
 //-------------------------------------------------------
+// function checikng time left
+
 //funkcja sprawdzający pozostaly czas
 let hourLeft = document.querySelector('.h')
 let minutLeft = document.querySelector('.m')
 let secondLeft = document.querySelector('.s')
+let taskTime
 
-const checkTime = (e) => {
-	let setDay = e.target
-	let setMonth
-	let setYear
-	// const result = currentTime - setTime
-	
-	console.log('checkTIME');
-	console.log(setDay);
-	
+
+const checkTime = e => {
+	let setDay = e.querySelector('.goalDay').innerHTML
+	let setMonth = e.querySelector('.goalMonth').innerHTML
+	let setYear = e.querySelector('.goalYear').innerHTML
+	let setLeftDay = e.querySelector('.d')
+	let setLeftHour = e.querySelector('.h')
+	let setLeftMinute = e.querySelector('.m')
+	let setLeftSecond = e.querySelector('.s')
+
+	taskTime = new Date(`${setYear}-${setMonth}-${setDay}`)
+	const currentTimeSystem = new Date()
+	let result = taskTime - currentTimeSystem 
+	const day = Math.floor(result / 1000 / 60 / 60 / 24)
+    const hour = Math.floor(result / 1000 / 60 / 60) % 24
+    const minute = Math.floor(result / 1000 / 60) %60
+    const second = Math.floor(result / 1000) %60
+
+	setLeftDay.textContent = day
+	setLeftHour.textContent = hour
+	setLeftMinute.textContent = minute
+	setLeftSecond.textContent = second
+
+}
+const checkLi = () => {
+	liList = document.querySelectorAll('li')
 }
 const setingTime = () => {
-		liList = document.querySelectorAll('li')
-		list = liList.forEach(element => {
-		checkTime(element)		
-	});
-		
-	console.log('settingTIME');
-	console.log(liList);
-} 
-setingTime()
+	liList = document.querySelectorAll('li')
+
+	liList.forEach(el => {
+		checkTime(el)
+	})
+	checkLi()
+}
+
+setInterval(setingTime, 1000)
 
 
-
-
-
-
-
-
-// const checkTimeLeft = timeLeft => {
-// 	for (let i=0; i < )
-// }
-
-// listeners
+//-------------------------------------------------
+// main listeners
 
 document.addEventListener('DOMContentLoaded', master)
 document.addEventListener('keyup', function (e) {
