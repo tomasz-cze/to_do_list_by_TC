@@ -145,6 +145,7 @@ body {
 			width: 80%;
 			padding: 10px 20px;
 			margin-right: 20px;
+			margin-bottom: 30px;
 			border: none;
 			border-radius: 5px;
 			color: var(--textColor-dark);
@@ -170,6 +171,12 @@ body {
 			margin-top: 20px;
 			font-size: 15px;
 			color: var(--dark-light);
+		}
+		.date {
+			display: flex;
+			justify-content: center;
+			margin: 20px 0 ;
+			font-size: 12px;
 		}
 	}
 	.todolist {
