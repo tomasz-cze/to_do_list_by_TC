@@ -209,7 +209,6 @@ body {
   border-radius: 5px 5px 0 0;
   padding: 40px;
   background-image: linear-gradient(120deg, #d1f5d7 0%, #cbdff7 100%);
-  z-index: 0;
 }
 
 .todo .header .addTaskButtonShow {
@@ -294,18 +293,7 @@ body {
 }
 
 .todo .header .date {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: 20px;
-  font-size: 12px;
-}
-
-.todo .header .date input {
-  width: 60px;
 }
 
 .todo .todolist {
@@ -377,6 +365,7 @@ body {
 }
 
 .todo .todolist .tools {
+  right: 0;
   display: inline-block;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -412,7 +401,7 @@ body {
   font-size: 10px;
 }
 
-.todo .todolist .tools .goalTimeTool .goalData {
+.todo .todolist .tools .goalTimeTool .goaldate {
   margin-top: 5px;
 }
 
@@ -493,8 +482,8 @@ body {
 }
 
 .todo .hideShowTodo {
-  -webkit-transform: translateY(-380px);
-          transform: translateY(-380px);
+  -webkit-transform: translateY(-360px);
+          transform: translateY(-360px);
 }
 
 .editWindow {

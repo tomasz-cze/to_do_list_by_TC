@@ -49,6 +49,9 @@ const master = () => {
 // function adding  div with tools to new task
 
 const addTools = () => {
+	datepickerInput = document.querySelector('.datePicker')
+	datepickerValue = datepickerInput.value
+
 	// all tools created
 	newTools = document.createElement('div')
 	newTools.classList.add('tools')
@@ -56,35 +59,25 @@ const addTools = () => {
 	// new goalTime tools created
 	newGoalTimeTool = document.createElement('div')
 	newGoalTimeTool.classList.add('goalTimeTool')
+	newTools.append(newGoalTimeTool)
 	// new
 	newGoalDate = document.createElement('div')
-	newGoalDate.classList.add('goalDate')
-	//
-	newGoalDay = document.createElement('span')
-	newGoalDay.classList.add('goalDay')
-	newGoalDay.textContent = setGoalDay.value + '-'
-	newGoalMonth = document.createElement('span')
-	newGoalMonth.classList.add('goalMonth')
-	newGoalMonth.textContent = setGoalMonth.value + '-'
-	newGoalYear = document.createElement('span')
-	newGoalYear.classList.add('goalYear')
-	newGoalYear.textContent = setGoalYear.value
+	newGoalDate.classList.add('goaldate')
+	newGoalDate.textContent = datepickerValue
+	
 
-	newGoalDate.append(newGoalDay, newGoalMonth, newGoalYear)
 
 	newGoalWeekDay = document.createElement('div')
 	newGoalWeekDay.classList.add('goalWeekDay')
 	newGoalWeekDay.textContent = dayName
 
-	newGoalTime = document.createElement('div')
-	newGoalTime.classList.add('goalTime')
-
 	//new Goal time tools added
-	newGoalTimeTool.append(newGoalDate, newGoalWeekDay, newGoalTime)
+	newGoalTimeTool.append(newGoalDate, newGoalWeekDay)
 
 	// new timeLeft tool created
 	newTimeLeftTool = document.createElement('div')
 	newTimeLeftTool.classList.add('timeLeftTool')
+	newTools.append(newTimeLeftTool)
 	newTimeLeft = document.createElement('div')
 	newTimeLeft.classList.add('timeLeft')
 	newTimeLeftTool.append(newTimeLeft)
@@ -97,7 +90,6 @@ const addTools = () => {
 	newDivD.classList.add('d')
 	newDivD.classList.add('timeSmallCard')
 
-	
 	newTimeLeftNameCardH = document.createElement('div')
 	newTimeLeftNameCardH.classList.add('hName')
 	newTimeLeftNameCardH.textContent = 'Godzin:'
@@ -106,7 +98,6 @@ const addTools = () => {
 	newDivH.classList.add('h')
 	newDivH.classList.add('timeSmallCard')
 
-
 	newTimeLeftNameCardM = document.createElement('div')
 	newTimeLeftNameCardM.classList.add('mName')
 	newTimeLeftNameCardM.textContent = 'Minut:'
@@ -114,7 +105,7 @@ const addTools = () => {
 	newDivM = document.createElement('div')
 	newDivM.classList.add('m')
 	newDivM.classList.add('timeSmallCard')
-	
+
 	newTimeLeftNameCardS = document.createElement('div')
 	newTimeLeftNameCardS.classList.add('sName')
 	newTimeLeftNameCardS.textContent = 'Sekund:'
@@ -122,11 +113,17 @@ const addTools = () => {
 	newDivS = document.createElement('div')
 	newDivS.classList.add('s')
 	newDivS.classList.add('timeSmallCard')
-	
 
-
-	newTimeLeft.append(newTimeLeftNameCardD, newDivD, newTimeLeftNameCardH, newDivH, newTimeLeftNameCardM, newDivM, newTimeLeftNameCardS, newDivS)
-    
+	newTimeLeft.append(
+		newTimeLeftNameCardD,
+		newDivD,
+		newTimeLeftNameCardH,
+		newDivH,
+		newTimeLeftNameCardM,
+		newDivM,
+		newTimeLeftNameCardS,
+		newDivS
+	)
 
 	newComplet = document.createElement('button')
 	newComplet.innerHTML = '<i class="far fa-check-circle"></i>'
@@ -142,7 +139,7 @@ const addTools = () => {
 	newDelete.classList.add('delete')
 
 	// shorter way of writing above
-	newTools.append(newGoalTimeTool, newTimeLeftTool, newComplet, newEdit, newDelete)
+	// newTools.append(newGoalTimeTool, newTimeLeftTool, newComplet, newEdit, newDelete)
 }
 
 // function adding new task
@@ -153,8 +150,8 @@ const addTask = () => {
 		newTask = document.createElement('li')
 		newTask.textContent = taskInput.value
 		tasksList.append(newTask)
-		getWeekDay(setGoalYear.value, setGoalMonth.value, setGoalDay.value)
 		addTools()
+		getWeekDay(datepickerValue)
 	} else {
 		alert1.style.color = 'red'
 		alert1.textContent = 'Wpisz treść zadania!'
@@ -174,7 +171,6 @@ const checkTools = e => {
 		confirmDelete(e)
 	}
 }
-
 
 //function checking which day of week is in task goal time
 
@@ -218,8 +214,6 @@ const showEdit = e => {
 
 // function closing editWindow
 
-
-
 const closeEdit = () => {
 	editWindow.style.display = 'none'
 }
@@ -238,9 +232,9 @@ const editTask = e => {
 	const editedYear = editedTask.querySelector('.goalYear')
 	const newEditYear = editInputDate.querySelector('.editEventYear')
 	newEditYear.textContent = editedYear.value
-	console.log(newEditDay);
-	console.log(newEditMonth);
-	console.log(newEditYear);
+	// console.log(newEditDay)
+	// console.log(newEditMonth)
+	// console.log(newEditYear)
 	// editedTask.firstChild.textContent =
 }
 //FUNCTION CHECKING WHICH BUTTON IS CLICKED in edit Window
@@ -257,8 +251,6 @@ const checkEdit = e => {
 //function showing adding task
 
 const showAddTask = () => {
-
-	console.log(todoList);
 	todoList.classList.toggle('hideShowTodo')
 }
 
@@ -292,7 +284,6 @@ const PrepDOMEvents = () => {
 // code for left side with weather and time
 //
 // -------------------------------------------------------------------
-
 
 const input = document.querySelector('input')
 const btn = document.querySelector('button')
@@ -377,23 +368,23 @@ let minutLeft = document.querySelector('.m')
 let secondLeft = document.querySelector('.s')
 let taskTime
 
-
 const checkTime = e => {
-	let setDay = e.querySelector('.goalDay').innerHTML
-	let setMonth = e.querySelector('.goalMonth').innerHTML
-	let setYear = e.querySelector('.goalYear').innerHTML
+	// 	let setDay = e.querySelector('.goalDay').innerHTML
+	// 	let setMonth = e.querySelector('.goalMonth').innerHTML
+	// 	let setYear = e.querySelector('.goalYear').innerHTML
 	let setLeftDay = e.querySelector('.d')
 	let setLeftHour = e.querySelector('.h')
 	let setLeftMinute = e.querySelector('.m')
 	let setLeftSecond = e.querySelector('.s')
-
-	taskTime = new Date(`${parseInt(setYear)}-${parseInt(setMonth)}-${parseInt(setDay)}`)
+	let setDate = e.querySelector('.goaldate')
+	let timeToCheck = setDate.textContent
+	taskTime = new Date(`${timeToCheck}`)
 	const currentTimeSystem = new Date()
-	let result = taskTime - currentTimeSystem 
+	let result = taskTime - currentTimeSystem
 	const day = Math.floor(result / 1000 / 60 / 60 / 24)
-    const hour = Math.floor(result / 1000 / 60 / 60) % 24
-    const minute = Math.floor(result / 1000 / 60) %60
-    const second = Math.floor(result / 1000) %60
+	const hour = Math.floor(result / 1000 / 60 / 60) % 24
+	const minute = Math.floor(result / 1000 / 60) % 60
+	const second = Math.floor(result / 1000) % 60
 
 	setLeftDay.textContent = day
 	setLeftHour.textContent = hour
@@ -415,17 +406,32 @@ const setingTime = () => {
 setInterval(setingTime, 1000)
 clearInterval(setingTime)
 
-
-const confirmDelete = (e) => {
-	let textConfirm = "Czy na pewno chcesz skasować zadanie?"
+const confirmDelete = e => {
+	let textConfirm = 'Czy na pewno chcesz skasować zadanie?'
 	if (confirm(textConfirm) == true) {
 		e.target.closest('li').remove()
-	} 
+	}
 }
 
 //datapicker
 
+//-------------------------------------------------
+// main listeners
 
+document.addEventListener('DOMContentLoaded', master)
+
+document.addEventListener('keyup', function (e) {
+	if (e.keyCode === 13) {
+		addTask()
+	}
+})
+
+// code to datepicker
+const elem = document.querySelector('input[name="datepicker"]')
+const datepicker = new Datepicker(elem, {
+	autohide: true,
+	format: `yyyy-mm-dd`,
+})
 //-------------------------------------------------
 // main listeners
 
