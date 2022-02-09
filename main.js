@@ -9,7 +9,8 @@ let taskInput
 let alert1
 let addBtn
 let tasksList
-
+let showAddBtn
+let todoList
 let goalDay
 let goalMonth
 let goalYear
@@ -228,11 +229,11 @@ const editTask = e => {
 	editedTask.firstChild.textContent = editInput.value
 	const editedDay = editedTask.querySelector('.goalDay')
 	const newEditDay = editInputDate.querySelector('.editEventDay')
-	editedDay.textContent = newEditDay.value
+	editedDay.textContent = newEditDay.value + '-'
 
 	const editedMonth = editedTask.querySelector('.goalMonth')
 	const newEditMonth = editInputDate.querySelector('.editEventMonth')
-	editedMonth.textContent = newEditMonth.value
+	editedMonth.textContent = newEditMonth.value + '-'
 
 	const editedYear = editedTask.querySelector('.goalYear')
 	const newEditYear = editInputDate.querySelector('.editEventYear')
@@ -253,6 +254,14 @@ const checkEdit = e => {
 	}
 }
 
+//function showing adding task
+
+const showAddTask = () => {
+
+	console.log(todoList);
+	todoList.classList.toggle('hideShowTodo')
+}
+
 // function downloading date from elements
 const PrepDOMElements = () => {
 	taskInput = document.querySelector('.task-input')
@@ -266,12 +275,16 @@ const PrepDOMElements = () => {
 	setGoalDay = document.querySelector('#eventDay')
 	setGoalMonth = document.querySelector('#eventMonth')
 	setGoalYear = document.querySelector('#eventYear')
+	todoList = document.querySelector('.todolist')
+	showAddBtn = document.querySelector('.addTaskButtonShow')
+
 }
 // function listetning for events
 const PrepDOMEvents = () => {
 	addBtn.addEventListener('click', addTask)
 	tasksList.addEventListener('click', checkTools)
 	editBody.addEventListener('click', checkEdit)
+	showAddBtn.addEventListener('click', showAddTask)
 }
 
 // -------------------------------------------------------------------
@@ -403,9 +416,6 @@ setInterval(setingTime, 1000)
 clearInterval(setingTime)
 
 
-//-------------------------------------------------
-// main listeners
-
 const confirmDelete = (e) => {
 	let textConfirm = "Czy na pewno chcesz skasować zadanie?"
 	if (confirm(textConfirm) == true) {
@@ -413,8 +423,14 @@ const confirmDelete = (e) => {
 	} 
 }
 
+//datapicker
+
+
+//-------------------------------------------------
+// main listeners
 
 document.addEventListener('DOMContentLoaded', master)
+
 document.addEventListener('keyup', function (e) {
 	if (e.keyCode === 13) {
 		addTask()

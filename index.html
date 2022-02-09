@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
     <script src="https://kit.fontawesome.com/5ad2517ddc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>To do list by TC</title>
@@ -60,8 +61,13 @@
             <div class="todo">
                 <div class="header">
                     <h1>Lista zadań</h1>
+                    <!-- /// co z ty mbtn  -->
+                    <div class="addTaskButtonShow">Dodaj nowe zadanie
+                        <img src="./img/plus-square.svg" alt="">
+                    </div>
                     <input type="text" class="task-input" placeholder="Tutaj wpisz treść zadania.">
                     <div>Kiedy zadania ma być wykonane?</div>
+                 
                     <table class="date">
                         <tr>
                             <td><label for="eventDay">Dzień:</label></td>
@@ -78,7 +84,7 @@
                     <p class="alert1">Zaplanuj co masz do zrobienia!</p>
 
                 </div>
-                <div class="todolist">
+                <div class="todolist hideShowTodo">
 
                     <h3>Lista zadań do wykonania:</h3>
                     <div class="taskOptions">
@@ -145,6 +151,7 @@
                 </div>
             </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./main.js"></script>
 </body>
