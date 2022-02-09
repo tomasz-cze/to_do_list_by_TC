@@ -21,6 +21,8 @@ let newTimeLeft
 let newGoalDay
 let newGoalMonth
 let newGoalYear
+let datepickerValue
+let datepickerInput
 let goalTimeTool
 let goalTimeDate
 let goalWeekDay
@@ -150,8 +152,10 @@ const addTask = () => {
 		newTask = document.createElement('li')
 		newTask.textContent = taskInput.value
 		tasksList.append(newTask)
-		addTools()
+		datepickerInput = document.querySelector('.datePicker')
+		datepickerValue = datepickerInput.value
 		getWeekDay(datepickerValue)
+		addTools()
 	} else {
 		alert1.style.color = 'red'
 		alert1.textContent = 'Wpisz treść zadania!'
@@ -174,8 +178,8 @@ const checkTools = e => {
 
 //function checking which day of week is in task goal time
 
-const getWeekDay = (y, m, d) => {
-	let setDate = new Date(`${y}- ${m}- ${d}`)
+const getWeekDay = (a) => {
+	let setDate = new Date(`${a}`)
 	let weekDay = setDate.getDay()
 	switch (weekDay) {
 		case 0:
@@ -203,6 +207,7 @@ const getWeekDay = (y, m, d) => {
 		default:
 			break
 	}
+
 }
 
 // function showing editWindow
@@ -269,7 +274,6 @@ const PrepDOMElements = () => {
 	setGoalYear = document.querySelector('#eventYear')
 	todoList = document.querySelector('.todolist')
 	showAddBtn = document.querySelector('.addTaskButtonShow')
-
 }
 // function listetning for events
 const PrepDOMEvents = () => {
@@ -279,6 +283,29 @@ const PrepDOMEvents = () => {
 	showAddBtn.addEventListener('click', showAddTask)
 }
 
+
+//
+//
+// time showing
+let time
+const actualyTime = document.querySelector('.currentTime')
+
+const showTime = () => {
+	const date = new Date()
+	let m = date.getMinutes()
+	let h = date.getHours()
+	let s = date.getSeconds()
+	let time
+
+	m = m < 10 ? '0' + m : m
+	h = h < 10 ? '0' + h : h
+	s = s < 10 ? '0' + s : s
+
+	time = h + ':' + m + ':' + s
+	actualyTime.innerHTML = time
+}
+showTime()
+setInterval(showTime, 1000)
 // -------------------------------------------------------------------
 //
 // code for left side with weather and time
@@ -335,29 +362,6 @@ getWeather()
 // listeners
 btn.addEventListener('click', getWeather)
 // input.addEventListener('keyup', enterKey)
-
-//
-//
-// time showing
-let time
-const actualyTime = document.querySelector('.currentTime')
-
-const showTime = () => {
-	const date = new Date()
-	let m = date.getMinutes()
-	let h = date.getHours()
-	let s = date.getSeconds()
-	let time
-
-	m = m < 10 ? '0' + m : m
-	h = h < 10 ? '0' + h : h
-	s = s < 10 ? '0' + s : s
-
-	time = h + ':' + m + ':' + s
-	actualyTime.innerHTML = time
-}
-showTime()
-setInterval(showTime, 1000)
 
 //-------------------------------------------------------
 // function checikng time left

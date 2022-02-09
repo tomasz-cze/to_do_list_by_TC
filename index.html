@@ -16,7 +16,7 @@
 </head>
 
 <body>
- 
+
     <section class="organizer">
         <div class="mainHeader">
 
@@ -63,7 +63,7 @@
             <div class="todo">
                 <div class="header">
                     <h1>Lista zadań</h1>
-                    <!-- /// co z ty mbtn  -->
+
                     <div class="addTaskButtonShow">Dodaj nowe zadanie
                         <img src="./img/plus-square.svg" alt="">
                     </div>
@@ -71,29 +71,22 @@
                     <div>Do kiedy zadanie ma być wykonane?</div>
 
                     <table class="date">
-                        <!-- <tr>
-                            <td><label for="eventDay">Dzień:</label></td>
-                            <td><label for="eventMonth">Miesiąc:</label></td>
-                            <td><label for="eventYear">Rok:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type='number' id="eventDay" maxlength="2" value=""></td>
-                            <td><input type='number' id="eventMonth" maxlength="2" value=""></td>
-                            <td><input type='number' id="eventYear" maxlength="4" value=""></td>
-                        </tr> -->
+
                         <div class="datepickerDiv">
-                            <input type="text" name="datepicker" class="datePicker" placeholder="Wybierz datę z kalendarza">
+                            <input type="text" name="datepicker" class="datePicker"
+                                placeholder="Wybierz datę z kalendarza">
                         </div>
-            
+
                     </table>
                     <button class="addBtn">Dodaj zadanie</button>
                     <p class="alert1">Zaplanuj co masz do zrobienia!</p>
 
                 </div>
-                <div class="todolist hideShowTodo">
+                <!-- <div class="todolist hideShowTodo"> -->
+                <div class="todolist">
 
                     <h3>Lista zadań do wykonania:</h3>
-       
+
                     <div class="taskOptions">
                         <div class="taskOption1">Planowany termin</div>
                         <div class="taskOption1">Pozostały czas</div>
@@ -106,13 +99,7 @@
                             <div class="tools">
                                 <div class="goalTimeTool">
                                     <div class="goaldate">2022-02-20</div>
-                                
-                                    <!-- <div class="goaldate">
-                                        <span class="goalDay">25</span>-<span class="goalMonth">02</span>-<span
-                                            class="goalYear">2022</span>
-                                    </div> -->
                                     <div class="goalWeekDay">Poniedziałek</div>
-
                                 </div>
                                 <div class="timeLeftTool">
                                     <div class="timeLeft">
@@ -143,7 +130,7 @@
                 <div class="editBody">
                     <p class="editAlert"></p>
                     <input type="text" class="editInput" placeholder="Wprowadź zedytowaną treść zadania...">
-                    <table class="editDate">
+                                <table class="editDate">
                         <tr>
                             <td><label for="eventDay">Dzień:</label></td>
                             <td><label for="eventMonth">Miesiąc:</label></td>
