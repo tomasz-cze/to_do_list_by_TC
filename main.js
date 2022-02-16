@@ -62,7 +62,8 @@ const addTools = () => {
 	newGoalTimeTool = document.createElement('div')
 	newGoalTimeTool.classList.add('goalTimeTool')
 	newTools.append(newGoalTimeTool)
-	// new
+	
+	// new goaldate created
 	newGoalDate = document.createElement('div')
 	newGoalDate.classList.add('goaldate')
 	newGoalDate.textContent = datepickerValue
@@ -226,21 +227,15 @@ const closeEdit = () => {
 
 const editTask = e => {
 	editedTask.firstChild.textContent = editInput.value
-	const editedDay = editedTask.querySelector('.goalDay')
+	const editedDay = editedTask.querySelector('.goaldate')
 	const newEditDay = editInputDate.querySelector('.editEventDay')
-	editedDay.textContent = newEditDay.value + '-'
-
-	const editedMonth = editedTask.querySelector('.goalMonth')
 	const newEditMonth = editInputDate.querySelector('.editEventMonth')
-	editedMonth.textContent = newEditMonth.value + '-'
-
-	const editedYear = editedTask.querySelector('.goalYear')
 	const newEditYear = editInputDate.querySelector('.editEventYear')
-	newEditYear.textContent = editedYear.value
-	// console.log(newEditDay)
-	// console.log(newEditMonth)
-	// console.log(newEditYear)
-	// editedTask.firstChild.textContent =
+	
+	editedDay.textContent = newEditYear.value + '-' + newEditMonth.value + '-' + newEditDay.value   
+	console.log(editedDay);
+
+
 }
 //FUNCTION CHECKING WHICH BUTTON IS CLICKED in edit Window
 
